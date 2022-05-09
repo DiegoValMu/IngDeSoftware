@@ -22,7 +22,7 @@
                 <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
                 Visitas</a>
 
-                <a href="../mantenciones/" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
+                <a href="../mantencion/" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
                 Mantencion de instalaciones</a>
 
                 <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
