@@ -37,7 +37,7 @@
 
               <section>
                   <div class="contenedor-boton-cuerpo">
-                  <a href="../calendario">
+                  <a href="../calendario/index.php">
                     <input type="submit" class="boton" name="submit"  value="Registro de mantención">
                   </a>
                   </div>
