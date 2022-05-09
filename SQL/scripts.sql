@@ -49,8 +49,8 @@ FOREIGN KEY (cod_bloque) REFERENCES Edificios(cod_bloque) );
 CREATE TABLE Encargado (
 rut_e VARCHAR(12) PRIMARY KEY NOT NULL,
 digito_ver_e VARCHAR(1), 
-nombre_e INT NOT NULL,
-apellido_e INT NOT NULL,
+nombre_e VARCHAR(20) NOT NULL,
+apellido_e VARCHAR(20) NOT NULL,
 cargo VARCHAR(30) NOT NULL,
 password_enc VARCHAR(30) NOT NULL);
 
@@ -64,13 +64,13 @@ fecha_fin DATE,
 rut_e VARCHAR(30) NOT NULL,
 cod_bloque INT,
 FOREIGN KEY (cod_bloque) REFERENCES Edificios(cod_bloque),
-FOREIGN KEY (rut_e) REFERENCES Mantencion(rut_e));
+FOREIGN KEY (rut_e) REFERENCES Encargado(rut_e));
 
 
 CREATE TABLE Mrealizada (
 cod_man_rea INT PRIMARY KEY,
 cod_man VARCHAR(30) NOT NULL,
-rut_empresa VARCHAR(30) NOT NULL,
+rut_empresa VARCHAR(12) NOT NULL,
 fecha_inicioyhora DATETIME NOT NULL,
 fecha_terminoyhora DATETIME NOT NULL,
 contratista VARCHAR(30) NOT NULL,
