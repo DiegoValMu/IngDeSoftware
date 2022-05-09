@@ -20,7 +20,7 @@
 <?php
 include('config.php');
 
-  $SqlEventos   = ("SELECT * FROM mantencion");
+  $SqlEventos   = ("SELECT * FROM Mantencion");
   $resulEventos = mysqli_query($con, $SqlEventos);
 
 ?>

@@ -19,7 +19,7 @@ $fecha_fin1        = strtotime($seteando_f_final."+ 0 days");
 $fecha_fin         = date('Y-m-d', ($fecha_fin1));  
 $color_evento      = $_REQUEST['color_evento'];
 
-$UpdateProd = ("UPDATE mantencion
+$UpdateProd = ("UPDATE Mantencion
     SET tipo_man ='$tipo_man',
         estado ='$estado_man',
         observacion ='$observacion_man',

@@ -27,7 +27,7 @@ $fecha_fin         = date('Y-m-d', ($fecha_fin1));
 $color_evento      = $_REQUEST['color_evento'];
 
 
-$InsertNuevoEvento = "INSERT INTO mantencion(
+$InsertNuevoEvento = "INSERT INTO Mantencion(
       cod_man,
       tipo_man,
       estado,
