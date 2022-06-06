@@ -5,11 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mi Calendario:: Mantenciones</title>
 	<link rel="stylesheet" href="">
-	<link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css">
+	<link rel="stylesheet" type="text/css" href="../calendario/css/fullcalendar.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="../calendario/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../calendario/css/home.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
@@ -20,7 +20,7 @@
 <?php
 include('config.php');
 
-  $SqlEventos   = ("SELECT * FROM Mantencion");
+  $SqlEventos   = ("SELECT * FROM mantencion");
   $resulEventos = mysqli_query($con, $SqlEventos);
 
 ?>
@@ -38,12 +38,12 @@ include('config.php');
           <!-- Fin Navbar -->
 
         <!-- Page Content -->
-        <div id="content" class="bg-grey w-100">
+        <div id="content" class="inicio w-100">
 
 
               
 
-              <section>
+              <section class="">
                
 
               <div class="container">
@@ -57,14 +57,14 @@ include('config.php');
 
                   <div class="row">
                     <div class="col-md-12 mb-3">
-                      <h2 class="text-center" id="title">Calendario de mantenciones edificio:</h2>
+                      <h2 class="text-center" id="title">Registro de mantenciones edificio:</h2>
                     </div>
                   </div>
                 </div>
 
 
 
-              <div id="calendar"></div>
+              <div id="calendar" class="bg-light"></div>
 
 
                 <?php  
@@ -74,12 +74,12 @@ include('config.php');
 
 
 
-<script src ="js/jquery-3.0.0.min.js"> </script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src ="../calendario/js/jquery-3.0.0.min.js"> </script>
+<script src="../calendario/js/popper.min.js"></script>
+<script src="../calendario/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="js/moment.min.js"></script>	
-<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="../calendario/js/moment.min.js"></script>	
+<script type="text/javascript" src="../calendario/js/fullcalendar.min.js"></script>
 <script src='locales/es.js'></script>
 
 <script type="text/javascript">
@@ -96,9 +96,8 @@ $(document).ready(function() {
     defaultView: "month",
     navLinks: true, 
     editable: true,
-    eventLimit: true, 
     selectable: true,
-    selectHelper: false,
+    selectHelper: true,
 
 //Nuevo Evento
   select: function(start, end){
@@ -107,7 +106,9 @@ $(document).ready(function() {
        
       var valorFechaFin = end.format("DD-MM-YYYY");
       var F_final = moment(valorFechaFin, "DD-MM-YYYY").subtract(1, 'days').format('DD-MM-YYYY'); //Le resto 1 dia
-      $('input[name=fecha_fin').val(F_final);  
+      $('input[name=fecha_fin').val(F_final); 
+      
+      
 
     },
       
@@ -118,7 +119,7 @@ $(document).ready(function() {
           _id: '<?php echo $dataEvento['cod_man']; ?>',
           title: '<?php echo $dataEvento['tipo_man']; ?>',
           estado: '<?php echo $dataEvento['estado']; ?>',
-          obs: '<?php echo $dataEvento['observacion']; ?>',
+          observacion: '<?php echo $dataEvento['observacion']; ?>',
           start: '<?php echo $dataEvento['fecha_inicio']; ?>',
           end:   '<?php echo $dataEvento['fecha_fin']; ?>',
           color: '<?php echo $dataEvento['color_evento']; ?>'
@@ -137,6 +138,7 @@ eventRender: function(event, element) {
     element.find(".closeon").on("click", function() {
 
   var pregunta = confirm("¿Deseas Borrar este registro?");   
+  console.log(pregunta);
   if (pregunta) {
 
     $("#calendar").fullCalendar("removeEvents", event._id);
@@ -165,15 +167,23 @@ eventDrop: function (event, delta) {
   var idEvento = event._id;
   var start = (event.start.format('DD-MM-YYYY'));
   var end = (event.end.format("DD-MM-YYYY"));
-
     $.ajax({
         url: 'drag_drop_evento.php',
         data: 'start=' + start + '&end=' + end + '&idEvento=' + idEvento,
         type: "POST",
         success: function (response) {
-         // $("#respuesta").html(response);
+          const alerta = document.getElementById('alerta_mod');
+      
+          //console.log(alerta);
+          //$(".alert-success").show();
+          alerta.setAttribute('style','display: content');
+          setTimeout(function () {
+                $(".alert-success").slideUp(500);
+              }, 3000); 
+         //$("#respuesta").html(response);
         }
     });
+    
 },
 
 //Modificar Evento del Calendario 
@@ -182,16 +192,48 @@ eventClick:function(event){
     $('input[name=idEvento').val(idEvento);
     $('input[name=evento').val(event.title);
     $('input[name=estado').val(event.estado);
-    $('input[name=observacion').val(event.obs);
+    $('input[name=observacion').val(event.observacion);
     $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
     $('input[name=fecha_fin').val(event.end.format("DD-MM-YYYY"));
 
     $("#modalUpdateEvento").modal();
   },
+  
 
 
   });
 
+
+  
+    // capturamos la url
+    var loc = document.location.href;
+    // si existe el interrogante
+    if(loc.indexOf('?')>0)
+    {
+      function getGET(){
+        // cogemos la parte de la url que hay despues del interrogante
+        var getString = loc.split('?')[1];
+        // obtenemos un array con cada clave=valor
+        var GET = getString.split('&');
+        var get = {};
+        // recorremos todo el array de valores
+        for(var i = 0, l = GET.length; i < l; i++){
+            var tmp = GET[i].split('=');
+            get[tmp[0]] = unescape(decodeURI(tmp[1]));
+        }
+        return get;
+      }
+      
+      const nuevoEvento = getGET();
+
+      if(nuevoEvento.e == 1){
+        const alerta = document.getElementById('alerta_nuevo');
+        alerta.setAttribute('style','display: content');
+      }
+
+      history.pushState(null, 'calendario', 'index.php')
+    }
+    
 
 //Oculta mensajes de Notificacion
   setTimeout(function () {

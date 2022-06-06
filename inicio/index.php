@@ -4,7 +4,7 @@
     <!-- fin head -->
 
 
-<body>
+<body >
     <div class="d-flex" id="content-wrapper">
     <!-- sideBar -->
     <?php include('../partes/sidebar.php') ?>
@@ -17,22 +17,25 @@
     <!-- Fin Navbar -->
 
         <!-- Page Content -->
-        <div id="content" class="bg-grey w-100">
+        <div id="content" class="inicio w-100">
 
-                <section class="bg-light py-3">
+                <section class="bg-light ubicacion" >
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-9 col-md-8">
                                 <h1 class="font-weight-bold mb-0">Bienvenido Juan</h1>
                                 <p class="lead text-muted">Revisa la última información</p>
                             </div>
+                            <!--
                             <div class="col-lg-3 col-md-4 d-flex">
                                 <button class="btn btn-primary w-100 align-self-center">Descargar reporte</button>
                             </div>
+-->
                         </div>
                     </div>
                 </section>
 
+                <!--
                 <section style="margin-top: 10px;">
                 <div class="container">
                     <div class="card rounded-0">
@@ -65,7 +68,7 @@
                     </div>
                 </div>
               </section>
-
+-->
               <section>
                   
                      

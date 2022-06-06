@@ -11,8 +11,12 @@ body {
     color: var(--primary);
 }
 
+a{
+    color: #000000;
+}
 a:hover {
     text-decoration: none;
+    color: #fff;
 }
 
 .bg-primary { background-color: var(--primary) !important; }
@@ -22,6 +26,9 @@ a:hover {
 .bg-grey { background-color: var(--grey) !important; }
 
 .bg-mix { background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
+
+
+
 
 .btn-primary {
     background-color: var(--primary);
@@ -39,9 +46,75 @@ a:hover {
 #sidebar-container .logo{
     padding: 0.875rem 1.25rem;
 }
-  
+ 
+.nav {
+    display: contents;
+    
+}
+
+.menuSesion{
+    display: none;
+    position: absolute;
+    background-color: #a22da2;
+    color: #000000!important;
+    top: 70px;
+    left: 80%;
+    border: 2px solid #000000;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+
+
+
+
+
+.gradiente{
+    background: -moz-linear-gradient(left,  #ffffff 0%,#5263b8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ffffff 0%,#5263b8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #111B54 0%,#a22da2 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    box-shadow: 10px 1px 10px 1px #000000 ;
+    height: 80px;
+}
+
+.ubicacion{
+    width: 80%;
+    margin: 10px 0px 0px 10%;
+   
+    box-shadow: -4px -1px 10px 1px #000000;
+}
+
+svg.bi.bi-list:hover{
+    border: 2px solid #fff;
+    border-radius: 1px;
+    cursor: pointer;
+
+}
+
+.logout{
+    display: block;
+    margin-top: 10px;
+    padding: 15px;
+    color: #000000!important;
+    cursor: pointer;
+    font-weight: bold;
+    
+
+}
+.logout:hover{
+    color: #fff!important;
+}
+
+.logout:hover #menuSesion{
+    display: block;
+    cursor: pointer;
+}
 #sidebar-container .menu {
     width: 18rem;
+}
+.side{
+    background: linear-gradient(to right,  #ffffff 0%,#a22da2 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
 }
 
 #content {
@@ -50,12 +123,43 @@ a:hover {
     padding-bottom: 5rem;
 }
 
+.activo{
+    display: block;
+}
+
+
+
+.form-control.buscando:hover #buscar{
+    width: 500px;
+}
+
+#buscar{
+    border: none;
+    top: -5px;
+}
+#buscar:focus{
+    outline: none;
+}
+
+
+
+
+
+.pasivo{
+    display: none;
+}
+
 .avatar {
     max-width: 35px;
 }
 
 .btn-search {
+    top: -5px;
     right: 0;
+}
+
+.btn-search:focus{
+    box-shadow: none;
 }
 
 .stat {
@@ -70,5 +174,9 @@ a:hover {
     .stat {
         border: 0;
     }
+  }
+
+  .inicio{
+      background-image: url(../img/condominios-750x375.jpg);
   }
   

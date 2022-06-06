@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set("America/Bogota");
+date_default_timezone_set("America/Santiago");
 setlocale(LC_ALL,"es_ES");
 //$hora = date("g:i:A");
 
@@ -17,6 +17,9 @@ $tipo_man            = ucwords($_REQUEST['evento']);
 $estado_man          = ucwords($_REQUEST['estado']);
 $observacion_man     = ucwords($_REQUEST['observacion']);
 
+$tipo_man            = trim($tipo_man);
+$observacion_man     = trim($observacion_man);
+
 $f_inicio          = $_REQUEST['fecha_inicio'];
 $fecha_inicio      = date('Y-m-d', strtotime($f_inicio)); 
 
@@ -27,7 +30,7 @@ $fecha_fin         = date('Y-m-d', ($fecha_fin1));
 $color_evento      = $_REQUEST['color_evento'];
 
 
-$InsertNuevoEvento = "INSERT INTO Mantencion(
+$InsertNuevoEvento = "INSERT INTO mantencion(
       cod_man,
       tipo_man,
       estado,
@@ -35,6 +38,7 @@ $InsertNuevoEvento = "INSERT INTO Mantencion(
       fecha_inicio,
       fecha_fin,
       rut_e,
+      cod_bloque,
       color_evento
       )
     VALUES (
@@ -45,6 +49,7 @@ $InsertNuevoEvento = "INSERT INTO Mantencion(
       '". $fecha_inicio."',
       '" .$fecha_fin. "',
       '". 18983834 ."',
+      '". 1 ."',
       '" .$color_evento. "'
   )";
 $resultadoNuevoEvento = mysqli_query($con, $InsertNuevoEvento);

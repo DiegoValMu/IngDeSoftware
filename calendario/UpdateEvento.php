@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set("America/Bogota");
+date_default_timezone_set("America/Santiago");
 setlocale(LC_ALL,"es_ES");
 
 include('config.php');
@@ -19,7 +19,7 @@ $fecha_fin1        = strtotime($seteando_f_final."+ 0 days");
 $fecha_fin         = date('Y-m-d', ($fecha_fin1));  
 $color_evento      = $_REQUEST['color_evento'];
 
-$UpdateProd = ("UPDATE Mantencion
+$UpdateProd = ("UPDATE mantencion
     SET tipo_man ='$tipo_man',
         estado ='$estado_man',
         observacion ='$observacion_man',
@@ -29,5 +29,5 @@ $UpdateProd = ("UPDATE Mantencion
     WHERE cod_man='".$idEvento."' ");
 $result = mysqli_query($con, $UpdateProd);
 
-header("Location:index.php?ea=1");
+header("Location:index.php");
 ?>

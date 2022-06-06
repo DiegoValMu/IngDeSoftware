@@ -78,5 +78,10 @@ FOREIGN KEY (cod_man) REFERENCES Mantencion(cod_man),
 FOREIGN KEY (rut_empresa) REFERENCES EmpresaM(rut_empresa));
 
 
+INSERT INTO `region`(`cod_reg`,`nombre_reg`) VALUES ('8','BIO-BIO');
 
+INSERT INTO `ciudad`(`cod_ciu`,`nombre_ciu`,`cod_reg`) VALUES ('1','concepcion','8');
 
+INSERT INTO `edificios`(`cod_bloque`,`nombre_edi`,`calle`,`cod_ciu`) VALUES ('1','bella vista','los carrera','1');
+
+INSERT INTO `encargado`(`rut_e`,`digito_ver_e`,`nombre_e`,`apellido_e`,`cargo`,`password_enc`) VALUES ('18983834','4','Diego','Valderrama','conserje','holamundo')

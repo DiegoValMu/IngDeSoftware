@@ -11,12 +11,14 @@ $end              = $_REQUEST['end'];
 $fecha_fin        = date('Y-m-d', strtotime($end));  
 
 
-$UpdateProd = ("UPDATE Mantencion 
+$UpdateProd = ("UPDATE mantencion 
     SET 
         fecha_inicio ='$fecha_inicio',
         fecha_fin ='$fecha_fin'
 
     WHERE cod_man='".$idEvento."' ");
 $result = mysqli_query($con, $UpdateProd);
+
+
 
 ?>
