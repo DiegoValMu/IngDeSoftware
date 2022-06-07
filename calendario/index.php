@@ -83,6 +83,7 @@ include('config.php');
 <script src='locales/es.js'></script>
 
 <script type="text/javascript">
+  const vacio = "";
 $(document).ready(function() {
   $("#calendar").fullCalendar({
     header: {
@@ -102,13 +103,19 @@ $(document).ready(function() {
 //Nuevo Evento
   select: function(start, end){
       $("#exampleModal").modal();
+
+      $('input[name=color_evento]').prop('checked', false);
+      $('input[name=evento').val(vacio);
+      $('select[name=estado]').val(vacio);
+      $('input[name=observacion').val(vacio);
+
       $("input[name=fecha_inicio]").val(start.format('DD-MM-YYYY'));
        
       var valorFechaFin = end.format("DD-MM-YYYY");
       var F_final = moment(valorFechaFin, "DD-MM-YYYY").subtract(1, 'days').format('DD-MM-YYYY'); //Le resto 1 dia
       $('input[name=fecha_fin').val(F_final); 
       
-      
+   
 
     },
       
@@ -126,6 +133,7 @@ $(document).ready(function() {
           },
         <?php } ?>
     ],
+   
 
 
 //Eliminar Evento
@@ -188,23 +196,87 @@ eventDrop: function (event, delta) {
 
 //Modificar Evento del Calendario 
 eventClick:function(event){
+ 
     var idEvento = event._id;
     $('input[name=idEvento').val(idEvento);
     $('input[name=evento').val(event.title);
-    $('input[name=estado').val(event.estado);
+    switch(event.estado){
+      case '1':
+        $('select[name=estado]').val(1);
+      break;
+      case '2':
+        $('select[name=estado]').val(2);
+      break;
+      case '3':
+        $('select[name=estado]').val(3);
+      break;
+      case '4':
+        $('select[name=estado]').val(4);
+      break;
+      default:
+      $('select[name=estado]').val(vacio);
+      break;
+    }
+    
+
     $('input[name=observacion').val(event.observacion);
     $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
     $('input[name=fecha_fin').val(event.end.format("DD-MM-YYYY"));
+    
 
+    
+   
+      
+    
+
+    
+    
+    //if(event.color == colorSele.map) )
+    //$('input[name=color_evento').prop('checked',true);
     $("#modalUpdateEvento").modal();
-  },
+    
+    const abrir = document.querySelector('#modalUpdateEvento');
+      const colores = document.getElementById('activado');
+  
+
+      
+ 
+
+     
+      console.log(abrir)
+      if(abrir.classList.contains('show')){
+      for( i = 0, j = colores.children.length; i <j ;i++){
+    
+       // colorSele[i].setAttribute('checked', false)
+     if(event.color == colores.children[i].value){
+      //  const colorEs = colorSele[i].id;
+       // let box = document.getElementById(colorEs);
+       colores.children[i].setAttribute('checked', true);
+        //  box.setAttribute('checked', true)
+        console.log(colores.children[i]);
+        
+       // console.log(box.checked);
+        //
+        //console.log(colorEs.id);
+      }else{
+        colores.children[i].removeAttribute('checked');
+        //console.log(colores.children[i]);
+      }
+      }
+  }else{
+    $('input[name=color_evento]').prop('checked', false);
+  }
+
+    
+    
+}
+  ,
   
 
 
   });
-
-
-  
+ 
+ 
     // capturamos la url
     var loc = document.location.href;
     // si existe el interrogante

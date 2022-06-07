@@ -49,7 +49,9 @@
 
   <div class="col-md-12" id="grupoRadio">
   
-  <input type="radio" name="color_evento" id="orange" value="#FF5722" checked>
+  
+
+  <input type="radio" name="color_evento" id="orange" value="#FF5722"  >
   <label for="orange" class="circu" style="background-color: #FF5722;"> </label>
 
   <input type="radio" name="color_evento" id="amber" value="#FFC107">  
@@ -77,4 +79,7 @@
       
     </div>
   </div>
-</div>
+</div> 
+<script>
+
+</script>

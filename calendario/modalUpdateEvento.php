@@ -46,16 +46,16 @@
       </div>
     </div>
 
-    <div class="col-md-12 activado">
+    <div class="col-md-12 activado" id="activado">
  
-      <input type="radio" name="color_evento" id="orangeUpd" value="#FF5722" checked>
+      <input type="radio" name="color_evento" id="orangeUpd" value="#FF5722" >
       <label for="orangeUpd" class="circu" style="background-color: #FF5722;"> </label>
 
       <input type="radio" name="color_evento" id="amberUpd" value="#FFC107">  
       <label for="amberUpd" class="circu" style="background-color: #FFC107;"> </label>
 
       <input type="radio" name="color_evento" id="limeUpd" value="#8BC34A">  
-      <label for="limeUpd" class="circu" style="background-color: #8BC34A;"> </label>
+      <label for="limeUpd" class="circu" style="background-color: #8BC34A;" > </label>
 
       <input type="radio" name="color_evento" id="tealUpd" value="#009688">  
       <label for="tealUpd" class="circu" style="background-color: #009688;"> </label>
