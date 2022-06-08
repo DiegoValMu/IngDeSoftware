@@ -15,7 +15,7 @@
           <!-- Fin Navbar -->
 
         <!-- Page Content -->
-        <div id="content" class=" inicio w-100">
+        <div id="content" class=" fondo2 w-100">
 
               <section class="bg-light py-2">
                   <div class="container">
@@ -47,6 +47,11 @@
                   <div class="contenedor-boton-cuerpo">
                     <a href="../mantenciones">
                         <input type="submit" class="boton" name="submit"  value="Listar empresas">
+                    </a>
+                  </div>
+                  <div class="contenedor-boton-cuerpo">
+                    <a href="../tools/listarMantenciones.view.php">
+                        <input type="submit" class="boton" name="submit"  value="Listar mantenciones">
                     </a>
                   </div>
               </section>

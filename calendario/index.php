@@ -38,7 +38,7 @@ include('config.php');
           <!-- Fin Navbar -->
 
         <!-- Page Content -->
-        <div id="content" class="inicio w-100">
+        <div id="content" class="fondo2 w-100">
 
 
               
@@ -70,6 +70,7 @@ include('config.php');
                 <?php  
                 include('modalNuevoEvento.php');
                 include('modalUpdateEvento.php');
+                include('modalUpdateEventoRealizada.php')
                 ?>
 
 
@@ -196,7 +197,20 @@ eventDrop: function (event, delta) {
 
 //Modificar Evento del Calendario 
 eventClick:function(event){
- 
+
+  if(event.estado == 1){
+    var idEvento = event._id;
+    $('input[name=idEvento').val(idEvento);
+    $('input[name=evento').val(event.title);
+    $('select[name=estado]').val(1);
+   
+    $('input[name=observacion').val(event.observacion);
+    $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
+    $('input[name=fecha_fin').val(event.end.format("DD-MM-YYYY"));
+
+    $("#modalUpdateEventoRealizada").modal();
+
+  }else{
     var idEvento = event._id;
     $('input[name=idEvento').val(idEvento);
     $('input[name=evento').val(event.title);
@@ -234,7 +248,6 @@ eventClick:function(event){
     //if(event.color == colorSele.map) )
     //$('input[name=color_evento').prop('checked',true);
     $("#modalUpdateEvento").modal();
-    
     const abrir = document.querySelector('#modalUpdateEvento');
       const colores = document.getElementById('activado');
   
@@ -266,6 +279,11 @@ eventClick:function(event){
   }else{
     $('input[name=color_evento]').prop('checked', false);
   }
+  }
+ 
+    
+    
+   
 
     
     

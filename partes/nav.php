@@ -28,6 +28,7 @@
                     <li><a href="#"><i class="fas fa-search"></i>Configuracion</a></li>
                     <li><a href="../calendario"><i class="fas fa-search"></i>Calendario</a></li>
                     <li><a href="../calendario"><i class="fas fa-search"></i>Registro de mantenciones</a></li>
+                    <li><a href="../tools/listarMantenciones.view.php"><i class="fas fa-search"></i>Lista mantenciones registradas</a></li>
                 </ul>
                 </div>
                 
