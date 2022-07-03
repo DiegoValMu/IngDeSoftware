@@ -15,6 +15,7 @@ $id = codrandom();
 require("config.php");
 $tipo_man            = ucwords($_REQUEST['evento']);
 $estado_man          = ucwords($_REQUEST['estado']);
+$bloque              = ucwords($_REQUEST['bloque']);
 $observacion_man     = ucwords($_REQUEST['observacion']);
 
 $tipo_man            = trim($tipo_man);
@@ -49,7 +50,7 @@ $InsertNuevoEvento = "INSERT INTO mantencion(
       '". $fecha_inicio."',
       '" .$fecha_fin. "',
       '". 18983834 ."',
-      '". 1 ."',
+      '". $bloque ."',
       '" .$color_evento. "'
   )";
 $resultadoNuevoEvento = mysqli_query($con, $InsertNuevoEvento);

@@ -26,6 +26,18 @@
 
      </select>
 		</div>
+
+    <label for="bloque" class="col-sm-12 control-label ">Lugar de la mantencion:</label>
+    <div class="col-sm-12">
+      <select type="text" name="bloque" id="bloque" class="form-control" required >
+        <option value="">Seleccione...</option>
+        <option value="1">General</option>
+        <option value="2">Bloque A</option>
+        <option value="3">Bloque B</option>
+        <option value="4">Bloque C</option>
+
+     </select>
+		</div>
    
     <label for="observacion" class="col-sm-12  ">Observacion en la mantencion: <br></label>
       <div class="col-sm-12 ">
@@ -48,29 +60,38 @@
 
     <div class="col-md-12 activado" id="activado">
  
-      <input type="radio" name="color_evento" id="orangeUpd" value="#FF5722" >
-      <label for="orangeUpd" class="circu" style="background-color: #FF5722;"> </label>
+    <input type="radio" name="color_evento" id="redUpd" value="#dc3545" required>
+  <label for="redUpd" class="circu" style="background-color: #dc3545;"> </label>
 
-      <input type="radio" name="color_evento" id="amberUpd" value="#FFC107">  
-      <label for="amberUpd" class="circu" style="background-color: #FFC107;"> </label>
+  <input type="radio" name="color_evento" id="orangeUpd" value="#fd7e14"  >
+  <label for="orangeUpd" class="circu" style="background-color: #fd7e14;"> </label>
 
-      <input type="radio" name="color_evento" id="limeUpd" value="#8BC34A">  
-      <label for="limeUpd" class="circu" style="background-color: #8BC34A;" > </label>
+  <input type="radio" name="color_evento" id="amberUpd" value="#FFC107">  
+  <label for="amberUpd" class="circu" style="background-color: #FFC107;"> </label>
 
-      <input type="radio" name="color_evento" id="tealUpd" value="#009688">  
-      <label for="tealUpd" class="circu" style="background-color: #009688;"> </label>
+  <input type="radio" name="color_evento" id="limeUpd" value="#8BC34A" >  
+  <label for="limeUpd" class="circu" style="background-color: #8BC34A;"> </label>
 
-      <input type="radio" name="color_evento" id="blueUpd" value="#2196F3">  
-      <label for="blueUpd" class="circu" style="background-color: #2196F3;"> </label>
+  <input type="radio" name="color_evento" id="tealUpd" value="#009688">  
+  <label for="tealUpd" class="circu" style="background-color: #009688;"> </label>
 
-      <input type="radio" name="color_evento" id="indigoUpd" value="#9c27b0">  
-      <label for="indigoUpd" class="circu" style="background-color: #9c27b0;"> </label>
+  <input type="radio" name="color_evento" id="blueUpd" value="#2196F3">  
+  <label for="blueUpd" class="circu" style="background-color: #2196F3;"> </label>
+
+  <input type="radio" name="color_evento" id="dark-blueUpd" value="#111B54">  
+  <label for="dark-blueUpd" class="circu" style="background-color: #111B54;"> </label>
+
+  <input type="radio" name="color_evento" id="indigoUpd" value="#9c27b0">  
+  <label for="indigoUpd" class="circu" style="background-color: #9c27b0;"> </label>
+
+  <input type="radio" name="color_evento" id="pinkUpd" value="#e83e8c">  
+  <label for="pinkUpd" class="circu" style="background-color: #e83e8c;"> </label>
 
     </div>
 
     
      <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <button type="submit" class="btn guardar text-light">Guardar Cambios</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
       </div>
   </form>
@@ -78,14 +99,3 @@
     </div>
   </div>
 </div>
-<script>
-  /*
-  const estadoMan = document.querySelector('#modalUpdateEvento #estado');
-  for(i= 0,j = estadoMan.length; i < j; i++){
-    console.log(estadoMan[i].textContent);
-    if(estadoMan[i].textContent == "Realizada"){
-
-    }
-  }*/
-  
-</script>

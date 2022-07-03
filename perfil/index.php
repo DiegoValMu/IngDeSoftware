@@ -16,23 +16,82 @@
           <!-- Fin Navbar -->
 
         <!-- Page Content -->
-        <div id="content" class="inicio w-100">
+        <div id="content" class="fondo2 w-100">
 
-              <section class="bg-light ">
-                  <div class="container">
+              <section class="bg-light py-4">
+                  <div class="container" >
                       <div class="row">
-                          <div class="col-lg-9 col-md-8">
-                            <h1 class="font-weight-bold mb-0">Bienvenido a tu perfil</h1>
-                            <p class="lead text-muted">Este es tu perfil</p>
+                          <div class="col-lg-12 col-md-8">
+                            <h1 class="font-weight-bold text-center mb-0">Bienvenido a tu perfil</h1>
+                           
                           </div>
                          
                       </div>
                   </div>
               </section>
 
-              <section class="bg-mix ">
-                <div class="container">
-                    
+              <section class=" my-5">
+                <div class="contenedor w-50 bg-light">
+                        <form action="perfil.php" method="post" class="form">
+                          <div class="form-group ">
+                            <label class="col-sm-12 control-label border-bottom" style="color: #000000"><i class="bi bi-chevron-right"></i>Informacion basica</label>
+                          </div>
+                          <div class="form-group ">
+                          <p class="m-0"><i class="bi bi-dot"></i>Nombre</p>
+                            <div class="col-sm-12 ">  
+                            
+                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required/>
+			                      </div>
+                          </div> 
+
+                          <div class="form-group ">
+                          <p class="m-0"><i class="bi bi-dot"></i>Apellido</p>
+                            <div class="col-sm-12 ">  
+                              <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido" required/>
+			                      </div>
+                          </div>
+
+                          <div class="form-group ">
+                          <p class="m-0"><i class="bi bi-dot"></i>Rut</p>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control" name="rut" id="rut" placeholder="Rut" required/>
+                            </div>
+                          </div>
+
+                          <div class="form-group ">
+                          <p class="m-0"><i class="bi bi-dot"></i>Cargo</p>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control" name="cargo" id="cargo" placeholder="Cargo" required/>
+                            </div>
+                          </div>
+
+                          <div class="form-group ">
+                          <p class="m-0"><i class="bi bi-dot"></i>Correo</p>
+                            <div class="col-sm-12">
+                              <input type="mail" class="form-control" name="cargo" id="cargo" placeholder="Correo" required/>
+                            </div>
+                          </div>
+
+                          <div class="form-group ">
+                          <p class="m-0"><i class="bi bi-dot"></i>Dirección</p>
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control" name="cargo" id="cargo" placeholder="Direccion" required/>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group">
+                            <div class="col-sm-12">
+      	                      <button type="submit" class="boton" >Guardar registro</button>
+                      
+                            </div>
+                        	</div>
+
+                          
+
+
+
+                        </form>
                 </div>
               </section>
 
@@ -49,6 +108,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

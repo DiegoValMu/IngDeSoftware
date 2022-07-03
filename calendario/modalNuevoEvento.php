@@ -27,6 +27,18 @@
 
      </select>
 		</div>
+
+    <label for="bloque" class="col-sm-12 control-label ">Lugar de la mantencion:</label>
+    <div class="col-sm-12">
+      <select type="text" name="bloque" id="bloque" class="form-control" required >
+        <option value="">Seleccione...</option>
+        <option value="1">General</option>
+        <option value="2">Bloque A</option>
+        <option value="3">Bloque B</option>
+        <option value="4">Bloque C</option>
+
+     </select>
+		</div>
    
     <label for="observacion" class="col-sm-12  ">Observacion en la mantencion: <br></label>
       <div class="col-sm-12 ">
@@ -51,8 +63,11 @@
   
   
 
-  <input type="radio" name="color_evento" id="orange" value="#FF5722"  >
-  <label for="orange" class="circu" style="background-color: #FF5722;"> </label>
+  <input type="radio" name="color_evento" id="red" value="#dc3545" required>
+  <label for="red" class="circu" style="background-color: #dc3545;" > </label>
+
+  <input type="radio" name="color_evento" id="orange" value="#fd7e14"  >
+  <label for="orange" class="circu" style="background-color: #fd7e14;"> </label>
 
   <input type="radio" name="color_evento" id="amber" value="#FFC107">  
   <label for="amber" class="circu" style="background-color: #FFC107;"> </label>
@@ -66,13 +81,19 @@
   <input type="radio" name="color_evento" id="blue" value="#2196F3">  
   <label for="blue" class="circu" style="background-color: #2196F3;"> </label>
 
+  <input type="radio" name="color_evento" id="dark-blue" value="#111B54">  
+  <label for="dark-blue" class="circu" style="background-color: #111B54;"> </label>
+
   <input type="radio" name="color_evento" id="indigo" value="#9c27b0">  
   <label for="indigo" class="circu" style="background-color: #9c27b0;"> </label>
+
+  <input type="radio" name="color_evento" id="pink" value="#e83e8c">  
+  <label for="pink" class="circu" style="background-color: #e83e8c;"> </label>
 
 </div>
 		
 	   <div class="modal-footer">
-      	<button type="submit" class="btn btn-success">Guardar registro</button>
+      	<button type="submit" class="btn guardar text-light">Guardar registro</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
     	</div>
 	</form>
@@ -80,6 +101,4 @@
     </div>
   </div>
 </div> 
-<script>
 
-</script>

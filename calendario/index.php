@@ -7,10 +7,15 @@
 	<link rel="stylesheet" href="">
 	<link rel="stylesheet" type="text/css" href="../calendario/css/fullcalendar.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../calendario/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../calendario/css/home.css">
   <link rel="stylesheet" href="../assets/css/style.css">
+ <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+
+  <link rel="stylesheet" href="../assets/css/sidebar.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
@@ -47,13 +52,6 @@ include('config.php');
                
 
               <div class="container">
-                 <div class="row">
-                     <div class="col msjs">
-                        <?php
-                           include('msjs.php');
-                        ?>
-                     </div>
-                 </div>
 
                   <div class="row">
                     <div class="col-md-12 mb-3">
@@ -70,7 +68,6 @@ include('config.php');
                 <?php  
                 include('modalNuevoEvento.php');
                 include('modalUpdateEvento.php');
-                include('modalUpdateEventoRealizada.php')
                 ?>
 
 
@@ -79,6 +76,7 @@ include('config.php');
 <script src="../calendario/js/popper.min.js"></script>
 <script src="../calendario/js/bootstrap.min.js"></script>
 
+
 <script type="text/javascript" src="../calendario/js/moment.min.js"></script>	
 <script type="text/javascript" src="../calendario/js/fullcalendar.min.js"></script>
 <script src='locales/es.js'></script>
@@ -86,6 +84,7 @@ include('config.php');
 <script type="text/javascript">
   const vacio = "";
 $(document).ready(function() {
+
   $("#calendar").fullCalendar({
     header: {
       left: "prev,next today",
@@ -103,11 +102,13 @@ $(document).ready(function() {
 
 //Nuevo Evento
   select: function(start, end){
+
+  
       $("#exampleModal").modal();
 
-      $('input[name=color_evento]').prop('checked', false);
       $('input[name=evento').val(vacio);
       $('select[name=estado]').val(vacio);
+      $('select[name=bloque]').val(vacio);
       $('input[name=observacion').val(vacio);
 
       $("input[name=fecha_inicio]").val(start.format('DD-MM-YYYY'));
@@ -127,6 +128,7 @@ $(document).ready(function() {
           _id: '<?php echo $dataEvento['cod_man']; ?>',
           title: '<?php echo $dataEvento['tipo_man']; ?>',
           estado: '<?php echo $dataEvento['estado']; ?>',
+          bloque: '<?php echo $dataEvento['cod_bloque']; ?>',
           observacion: '<?php echo $dataEvento['observacion']; ?>',
           start: '<?php echo $dataEvento['fecha_inicio']; ?>',
           end:   '<?php echo $dataEvento['fecha_fin']; ?>',
@@ -146,28 +148,53 @@ eventRender: function(event, element) {
     //Eliminar evento
     element.find(".closeon").on("click", function() {
 
-  var pregunta = confirm("¿Deseas Borrar este registro?");   
-  console.log(pregunta);
-  if (pregunta) {
-
-    $("#calendar").fullCalendar("removeEvents", event._id);
-
-     $.ajax({
-            type: "POST",
-            url: 'deleteEvento.php',
-            data: {id:event._id},
-            success: function(datos)
-            {
-              $(".alert-danger").show();
-
-              setTimeout(function () {
-                $(".alert-danger").slideUp(500);
-              }, 3000); 
-
-            }
-        });
-      }
+    Swal
+      .fire({
+          title: "Esta por eliminar un registro ",
+          text: "¿Continuar?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: "Sí, eliminar",
+          cancelButtonText: "Cancelar",
+      })
+      .then(resultado => {
+        if (resultado.value) {
+          // Hicieron click en "Sí"
+          $("#calendar").fullCalendar("removeEvents", event._id);
+        
+            $.ajax({
+                   type: "POST",
+                   url: 'deleteEvento.php',
+                   data: {id:event._id},
+                   success: function(datos)
+                   {
+                     Swal
+                        .fire({
+                          title:"Eliminado con exito",
+                          icon: "success",
+                          showConfirmButton: false,
+                          showCancelButton: false,
+                          timer: 1500
+                        })
+                      
+                   },
+                   fail:function(datos){
+                    Swal
+                        .fire({
+                          title:"No se a podido borrar",
+                          icon: "warning",
+                          showConfirmButton: false,
+                          showCancelButton: false,
+                          timer: 1500
+                        })
+                   }
+               });
+        } else {
+          // Dijeron que no
+            console.log("*NO se elimina*");
+        }
     });
+});
   },
 
 
@@ -181,37 +208,27 @@ eventDrop: function (event, delta) {
         data: 'start=' + start + '&end=' + end + '&idEvento=' + idEvento,
         type: "POST",
         success: function (response) {
-          const alerta = document.getElementById('alerta_mod');
-      
-          //console.log(alerta);
-          //$(".alert-success").show();
-          alerta.setAttribute('style','display: content');
-          setTimeout(function () {
-                $(".alert-success").slideUp(500);
-              }, 3000); 
-         //$("#respuesta").html(response);
+          Swal
+              .fire({
+                title:"Modificado con exito",
+                icon: "success",
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+              })
         }
     });
     
 },
 
 //Modificar Evento del Calendario 
-eventClick:function(event){
+eventClick:function(event,e){
+  var idEvento = event._id;
 
-  if(event.estado == 1){
-    var idEvento = event._id;
-    $('input[name=idEvento').val(idEvento);
-    $('input[name=evento').val(event.title);
-    $('select[name=estado]').val(1);
-   
-    $('input[name=observacion').val(event.observacion);
-    $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
-    $('input[name=fecha_fin').val(event.end.format("DD-MM-YYYY"));
+if(e.target.id=="btnCerrar"){
 
-    $("#modalUpdateEventoRealizada").modal();
-
-  }else{
-    var idEvento = event._id;
+}else{
+    
     $('input[name=idEvento').val(idEvento);
     $('input[name=evento').val(event.title);
     switch(event.estado){
@@ -231,6 +248,24 @@ eventClick:function(event){
       $('select[name=estado]').val(vacio);
       break;
     }
+
+    switch(event.bloque){
+      case '1':
+        $('select[name=bloque]').val(1);
+      break;
+      case '2':
+        $('select[name=bloque]').val(2);
+      break;
+      case '3':
+        $('select[name=bloque]').val(3);
+      break;
+      case '4':
+        $('select[name=bloque]').val(4);
+      break;
+      default:
+      $('select[name=bloque]').val(vacio);
+      break;
+    }
     
 
     $('input[name=observacion').val(event.observacion);
@@ -248,44 +283,10 @@ eventClick:function(event){
     //if(event.color == colorSele.map) )
     //$('input[name=color_evento').prop('checked',true);
     $("#modalUpdateEvento").modal();
-    const abrir = document.querySelector('#modalUpdateEvento');
-      const colores = document.getElementById('activado');
-  
-
-      
- 
-
-     
-      console.log(abrir)
-      if(abrir.classList.contains('show')){
-      for( i = 0, j = colores.children.length; i <j ;i++){
-    
-       // colorSele[i].setAttribute('checked', false)
-     if(event.color == colores.children[i].value){
-      //  const colorEs = colorSele[i].id;
-       // let box = document.getElementById(colorEs);
-       colores.children[i].setAttribute('checked', true);
-        //  box.setAttribute('checked', true)
-        console.log(colores.children[i]);
-        
-       // console.log(box.checked);
-        //
-        //console.log(colorEs.id);
-      }else{
-        colores.children[i].removeAttribute('checked');
-        //console.log(colores.children[i]);
-      }
-      }
-  }else{
-    $('input[name=color_evento]').prop('checked', false);
-  }
-  }
- 
-    
-    
    
+  }
 
-    
+  
     
 }
   ,
@@ -317,20 +318,47 @@ eventClick:function(event){
       const nuevoEvento = getGET();
 
       if(nuevoEvento.e == 1){
-        const alerta = document.getElementById('alerta_nuevo');
-        alerta.setAttribute('style','display: content');
+        Swal
+              .fire({
+                title:"Mantencion registrada con exito",
+                icon: "success",
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1500
+              })
       }
 
       history.pushState(null, 'calendario', 'index.php')
     }
     
+/*
+const btnSidebar = document.getElementById("sidebar-container");
+ 
+const btnLabel = document.getElementById("btnLabel");
+var src;
+cargarEventsListeners();
+            function cargarEventsListeners() {
 
-//Oculta mensajes de Notificacion
-  setTimeout(function () {
-    $(".alert").slideUp(300);
-  }, 3000); 
+
+                btnLabel.addEventListener("click", cambiarBoot )
 
 
+            }
+            
+  function cambiarBoot(){
+    const ruta = document.getElementById("11");
+    ruta.src ="";
+    if(btnSidebar.classList.contains("activo2")){ 
+      ruta.src ="";
+      ruta.src = "../calendario/js/bootstrap.min.js";
+    }else{
+      ruta.src ="";
+      ruta.src = "../js/bootstrap.min.js";
+    }
+
+  }
+
+  */
 });
 
 </script>
@@ -356,7 +384,7 @@ eventClick:function(event){
 
 
 
-
+<script src="https://unpkg.com/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
 
 </body>
 </html>

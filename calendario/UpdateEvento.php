@@ -8,6 +8,7 @@ $idEvento         = $_POST['idEvento'];
 
 $tipo_man            = ucwords($_REQUEST['evento']);
 $estado_man          = ucwords($_REQUEST['estado']);
+$bloque              = ucwords($_REQUEST['bloque']);
 $observacion_man     = ucwords($_REQUEST['observacion']);
 
 $f_inicio          = $_REQUEST['fecha_inicio'];
@@ -25,6 +26,7 @@ $UpdateProd = ("UPDATE mantencion
         observacion ='$observacion_man',
         fecha_inicio ='$fecha_inicio',
         fecha_fin ='$fecha_fin',
+        cod_bloque = '$bloque',
         color_evento ='$color_evento'
     WHERE cod_man='".$idEvento."' ");
 $result = mysqli_query($con, $UpdateProd);

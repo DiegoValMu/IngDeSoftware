@@ -7,8 +7,14 @@
 .contenedor {
 	max-width: 800px;
 	width: 90%;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
    margin-top: 2%;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 1px #000000;
+	display: block;
+	position: relative;
 }
 
 .contenedor-boton-cuerpo{
@@ -21,9 +27,8 @@
 }
 
 .formulario {
-	background-color:rgb(250, 243, 229);
+	background-color: #fff;
 	padding: 30px;
-	margin-bottom: 40px;
 }
 
 .formulario .form-group {
@@ -38,14 +43,32 @@
 .formulario input[type="password"],
 .formulario input[type="number"],
 .formulario input[type="date"]{
+	display: inline-block!important;
 	padding: 15px;
 	font-family: 'Raleway', sans-serif;
 	font-size: 18px;
 	line-height: 18px;
-	border: none;
+	border: 1px solid #000000;
 	vertical-align: top;
-    margin-top: 2%;
+    margin-top: 11px;
 }
+
+.form-control:focus {
+	box-shadow: none!important;
+}
+
+.verificador{
+	position: absolute;
+	display: inline-block!important;
+	width: auto!important;
+	line-height: 18px!important;
+	border: 1px solid #000000!important;
+	vertical-align: top!important;
+    margin-top: 11px!important;
+	font-size: 18px!important;
+	margin-left: 4px!important;
+}
+
 
 .formulario .icono {
 	padding: 15px;
@@ -66,22 +89,18 @@
 	border-radius: 3px 0 0 3px;
 }
 
-.formulario .nombres,
-.formulario .apellidos,
-.formulario .correo,
-.formulario .telefono,
-.formulario .contrasena {
-	width: calc(100% - 52px);
+.formulario #rut{
+	width: calc(100% - 73px);
 
-	border-radius: 0 3px 3px 0;
 }
-.formulario .stock,
-.formulario .pcosto,
-.formulario .fcompra,
-.formulario .nombrep{
-	width: 100%;
-	border-radius: 0 3px 3px 0;
+
+.separador{
+	display: inline-block;
+	margin-bottom: 0px!important;
+	position: relative;
+	top: 17px;
 }
+
 
 form select{
 	padding: 15px;
@@ -108,24 +127,43 @@ form textarea {
 	border: none;
 }
 
+.boton2:hover {
+	background-color: #5a6268;
+}
+
+
+.boton,
 a input[type="submit"]:hover,
-form input[type="submit"]:hover{
+form button[type="submit"]:hover{
 	background: #a22da2;
 }
 
-.boton,
-form input[type="submit"]{
-    margin-left: 35%;
+.boton2{
     margin-top: 05%;
-	padding: 15px;
-	background:  #111B54;
+	padding: 6px;
+	background:  #6c757d;
 	color:#E1E9FA;
 	font-size: 1em;
 	float: center;
 	cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5px;
     
 }
+
+.boton,
+form button[type="submit"]{
+    margin-top: 02%;
+	padding: 6px;
+	background:  #111B54;
+	color:#E1E9FA;
+	font-size: 1em;
+	cursor: pointer;
+    border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+    display: block;
+}
+
 a input[type="submit"]{
 	box-shadow: 0px 0px 0px 1px #fff;
 	background:  #111B54;

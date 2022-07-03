@@ -1,0 +1,311 @@
+.menuSesion a{
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    padding: 5px!important;
+    display: block;
+}
+
+.nav {
+    display: contents;
+    
+}
+
+.menuSesion{
+    visibility: hidden;
+    position: absolute;
+    background-color: #a22da2;
+    color: #fff!important;
+    top: 60px;
+    border: 2px solid #000000;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 9;
+    opacity: 0;
+    width: max-content;
+    left: 0px;
+}
+
+.logout{
+    display: inline-block;
+    position: relative;
+   
+    padding: 15px;
+    color: #fff!important;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 3px 2px 2px #000000;
+    
+
+}
+.logout:hover{
+    color: #fff!important;
+    
+}
+.logout:hover #menuSesion{
+    opacity: 1;
+    transition:  0.25s ease-in;
+    cursor: pointer;
+    
+}
+
+
+.buscando #buscar{
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    width: 300px;
+    transition: 1s;
+   
+
+}
+
+.derecha{
+    right: 20px;
+}
+
+.sinDecoracion{
+    text-shadow: 3px 2px 2px #000000;
+}
+
+.btnNav{
+    
+    box-shadow: none!important;
+}
+
+.buscando:hover #buscar{
+    width: 500px;
+    transition: 1s;
+}
+
+#buscar{
+    border: none;
+}
+#buscar:focus{
+    outline: none;
+    width: 500px;
+}
+
+.fa-home:before {
+    position: relative;
+    top: 5px;
+}
+
+#box-search{
+    display: none;
+    padding-top: 10px;
+    position: fixed;
+    top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    background: #fff;
+    z-index: 8;
+    overflow: hidden;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+#box-search li a{
+    display: block;
+    width: auto;
+    color: #777777;
+    padding: 0.375rem 0.75rem;
+}
+
+#box-search li a:hover{
+    background: #f3f3f3;
+}
+
+
+#box-search li a i{
+    margin-right: 10px;
+    color: #777777;
+}
+
+.btn-search {
+    top: -5px;
+    right: 0;
+}
+
+.btn-search:focus{
+    box-shadow: none;
+}
+
+svg.bi.bi-search{
+    display: none!important;
+    position:relative!important;
+    float: right!important;
+}
+
+.buscador2{
+    position:relative!important;
+    width: 100%;
+    display: none;
+
+}
+
+#buscar2{
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: none;
+}
+
+#buscar2:focus-visible{
+    box-shadow:none!important;
+}
+
+@media (min-width: 800px) {
+    .buscador2{
+        display: none!important;
+    }
+}
+
+@media (max-width: 767px) {
+    .form-control.buscando #buscar {
+        
+      width: auto;
+    }
+    .form-control.buscando:hover #buscar{
+        width: auto!important;
+    }
+    #box-search{
+        width: 300px;
+    }
+    .stat {
+        border: 0;
+    }
+    #buscar:focus{
+        outline: none;
+        width: auto!important;
+    }
+    .buscando:hover #buscar{
+        width: auto;
+        transition: none;
+    }
+    .buscando #buscar{
+        display: none!important;
+    }
+    .btnHome{
+        display:none!important;
+    }
+    .logout{
+        display: none!important;
+    }
+
+  }
+
+
+  svg.bi.bi-search:hover{
+    padding: 2px;
+    cursor: pointer;
+}
+
+
+#nav-check{
+    display: none;
+}
+
+
+
+.nav-btn {
+    display: inline-block;
+    position: initial;
+    top: 0px;
+    left: 0px;
+}
+
+
+.nav-btn > label {
+display: inline-block;
+width: 25px;
+height: 32px;
+margin: 0px;
+}
+
+.nav-btn > label >span,
+.nav-btn > label >span::before,
+.nav-btn > label >span::after{
+display: block;
+position: absolute;
+width: 100%;
+height: 2px;
+transition-duration: .25s;
+}
+.nav-btn > label >span{
+top: 50%;
+background: #fff;
+}
+.nav-btn > label >span::before{
+content: '';
+top: -8px;
+background: #fff;
+}
+.nav-btn > label >span::after{
+content: '';
+top: 8px;
+background: #fff;
+}
+
+.nav-btn > label:hover{
+cursor: pointer;
+}
+
+#nav-check:checked ~ .nav-btn > label > span{
+transform: rotate(45deg)!important;
+}
+
+#nav-check:checked ~ .nav-btn > label > span::before{
+transform: rotate(0deg)!important;
+top: 0px!important;
+}
+ #nav-check:checked ~ .nav-btn > label > span::after{
+transform: rotate(90deg)!important;
+top: 0px!important;
+}
+
+ #nav-check:not(checked) ~ .nav-btn label{
+background-color: transparent;
+}
+
+ .nav-btn > label > span{
+
+width: 25px;
+
+}
+
+
+#nav-check:not(:checked) ~ #sidebar-container{
+width: 0px!important;
+position: absolute!important;
+}
+
+#nav-check:checked ~ #sidebar-container{
+width: 280px!important;
+overflow-y: auto!important;
+}
+
+::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+::-webkit-scrollbar-thumb {
+    background-color: rgb(86, 86, 86);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(185, 185, 185);  /* creates padding around scroll thumb */
+  }

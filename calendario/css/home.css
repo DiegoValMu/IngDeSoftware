@@ -2,11 +2,19 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 10px;
-  box-shadow: 0px 0px 10px 1px #000000
+  box-shadow: 0px 0px 10px 1px #000000;
 }
 
 #exampleModal{
   padding: 10px;
+}
+
+.guardar:hover{
+  background-color: #a22da2!important;
+}
+
+.guardar{
+  background-color: #111B54;
 }
 
 #title{
@@ -17,6 +25,7 @@
   background: #fff;
   padding: 8px 30px;
   box-shadow: 0px 0px 10px 1px #000000 ;
+
 }
 
 .area {
@@ -81,7 +90,7 @@ input[type="radio"] {
 
 
 .circu{
-  padding: 25px;
+  padding: 20px;
   background: #ccc;
   border-radius: 50px;
 }
@@ -99,6 +108,6 @@ input[type="radio"] {
 }
 
 
-.activado input[type=radio]:checked + label {
+#activado input[type=radio]:checked + label {
   border: 3px solid #555 !important;  
 }
