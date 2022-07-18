@@ -8,10 +8,22 @@
     overflow-y: hidden;
     top:70px;
     transition: .5s;
-    background: linear-gradient(to right,  #111B54 0%,#361e66 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(to right,  #111B54 0%,#281f58 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#sidebar-container-inicio{
+    height: 100vh;
+    position: absolute;
+    display: block;
+    width: 0px;
+    right: 0px;
+    z-index: 9;
+    overflow-y: auto;
+    top:80px;
+    transition: .5s;
+    background: linear-gradient(to right,    #572562 0%,#6F2968 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
   
-
 
 #sidebar-container a{
     position: relative;
@@ -81,5 +93,4 @@
     }
 
 }
-
 

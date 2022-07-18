@@ -24,7 +24,7 @@
               </section>
 
               
-              <section class=" rounded position-relative" style="top: 10%; height: auto; min-width: 300px; width: 80%!important; margin-left: auto!important; margin-right: auto!important;">
+              <section class="rounded position-relative my-4" style=" min-width: 300px; width: 80%!important; margin-left: auto!important; margin-right: auto!important;">
               
               <div class="container h-100 rounded mb-5 bg-light" align="center">
 
@@ -75,7 +75,7 @@
 
                 <div class="container pb-2 bg-light ">
                         <h6 class="font-weight-bold py-2" align="center">Mantenciones del mes: Julio</h6>
-                        <table id="notificaciones" class="table table-striped w-75 ">
+                        <table id="notificaciones" class="table table-striped w-75 border">
                             <thead>
                                 <tr>
                                     <th>Mantención</th>
@@ -130,12 +130,12 @@
 
                 </div>
 
-                <div class="container h-100 rounded mb-5 bg-light border" align="center">
+                <div class="container rounded  bg-light border" align="center">
                 <h5 class="py-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Mantenciones realizadas en las instalaciones </h5>
                 
                 <div class="container pb-5 bg-light">
                         <h6 class="font-weight-bold py-2" align="center">año 2022</h6>
-                        <table id="notificaciones2" class="table table-striped w-75">
+                        <table id="notificaciones2" class="table table-striped w-75 border">
                             <thead>
                                 <tr>
                                     <th>Mantención</th>
@@ -202,8 +202,6 @@
         crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

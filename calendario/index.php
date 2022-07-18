@@ -330,6 +330,19 @@ if(e.target.id=="btnCerrar"){
 
       history.pushState(null, 'calendario', 'index.php')
     }
+
+
+    $('#btnCalendario').click(function() {
+      const mantenciones = $('#mantenciones');
+      mantenciones.slideToggle('slow')
+    })
+
+    $('#btnConfig').click(function() {
+      const mantenciones = $('#orders-collapse');
+      mantenciones.slideToggle('slow')
+    })
+
+
     
 /*
 const btnSidebar = document.getElementById("sidebar-container");

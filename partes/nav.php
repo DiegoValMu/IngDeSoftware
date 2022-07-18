@@ -32,12 +32,11 @@
           
                 <ul id="box-search">
                     <li><a href="../inicio"><i class="fas fa-search"></i>Inicio</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i>Usuarios</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Gastos Comunes</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Reservas</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Visitas</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i>Buzón</a></li>
                     <li><a href="../mantencion"><i class="fas fa-search"></i>Mantencion de instalaciones</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i>Paquete y correspondencia</a></li>
                     <li><a href="../perfil"><i class="fas fa-search"></i>Perfil</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Configuracion</a></li>
                     <li><a href="../calendario"><i class="fas fa-search"></i>Calendario</a></li>

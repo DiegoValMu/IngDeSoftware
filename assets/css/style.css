@@ -26,7 +26,6 @@ a:hover {
 .bg-mix { background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
 
 .btn-primary {
-    background-color: var(--primary);
     border: 0;
 }
 
@@ -52,15 +51,15 @@ a.page-link:focus{
   }
 
   .page-item.active .page-link {
-      background-color: #a22da2;
-      border-color: #a22da2;
+      background-color: #6F2968;
+      border-color: #6F2968;
   }
 
 
 .gradiente{
     background: -moz-linear-gradient(left,  #ffffff 0%,#0fdeb8 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, #ffffff 0%,#5263b8 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  #111B54 0%,#a22da2 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(to right,  #111B54 0%,#6F2968 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     box-shadow: 10px 1px 10px 1px #000000 ;
 }
 
@@ -105,11 +104,14 @@ svg.bi.bi-person-circle{
     border-radius: 2px;
     margin-left: 7%;
 }
+.btn-primary:hover{
+  background-color: #007bff!important;
+}
 
 .barra{
     background: -moz-linear-gradient(left,  #ffffff 0%,#0fdeb8 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, #ffffff 0%,#5263b8 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  #111B54 0%,#a22da2 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(to right,  #111B54 0%,#6F2968 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     height: 100px;
 }
 
@@ -124,7 +126,7 @@ svg.bi.bi-person-circle{
 
 
 .side{
-    background: linear-gradient(to right,  #ffffff 0%,#a22da2 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+    background: linear-gradient(to right,  #ffffff 0%,#6F2968 100%); /* IE10* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
 }
 
 #content {
@@ -153,6 +155,14 @@ svg.bi.bi-person-circle{
     transition: 2s;
 }
 
+
+
+.btn-outline-light:hover{
+  color: #000000!important;
+  background-color: #fff;
+  opacity: 0.5;
+}
+
 .activo2{
 
     overflow-y: auto;
@@ -170,7 +180,23 @@ svg.bi.bi-person-circle{
 
      transition: .5s;
  }
+ .activo3{
 
+  overflow-y: auto;
+ 
+
+   transition: .5s;
+   width: 400px!important;
+}
+
+
+.pasivo3{
+
+  width: 0px!important;
+   position: absolute;
+
+   transition: .5s;
+}
 .avatar {
     max-width: 35px;
     position: relative;
@@ -256,10 +282,10 @@ svg.bi.bi-person-circle{
   }
 
   .herramienta:hover{
-    background-color: #a22da2;
     box-shadow: 0px 0px 5px 1px #000000;
   }
 
+  .herrmienta:hover 
 
 .herramienta a{
     
@@ -290,32 +316,35 @@ svg.bi.bi-person-circle{
   justify-content: center;
 }
 
-#facebook:hover,
-#twitter:hover,
-#google-plus:hover,
+#facebook:hover{
+  background-color: blue!important;
+}
+#twitter:hover{
+  background-color:rgb(0, 200, 255)
+}
+#google-plus:hover{
+  background-color: crimson!important;
+}
 #instagram:hover{
-  width: 120px;
+  background-color: blueviolet!important;
 }
 
 
 
-  #facebook:hover::after {
-    opacity: 1;
-    content: " Facebook";
-    padding-left: 5px;
+
+
+  .logo{
+    color:#fff!important; 
+    position:relative;
+    padding: 0px;
+    font-size: larger;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 0px;
   }
-  #twitter:hover::after {
-    content: " Twitter";
-    opacity: 1;
-    padding-left: 5px;
-  }
-  #google-plus:hover::after {
-    opacity: 1;
-    content: " Google+";
-    padding-left: 5px;
-  }
-  #instagram:hover::after {
-    opacity: 1;
-    content: " Instagram";
-    padding-left: 5px;
+
+  .subLogo{
+    color:rgb(193, 193, 193)!important;
+    position:relative;
+    margin-bottom: 0px;
   }

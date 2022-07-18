@@ -8,13 +8,12 @@
 
 .nav {
     display: contents;
-    
 }
 
 .menuSesion{
     visibility: hidden;
     position: absolute;
-    background-color: #a22da2;
+    background-color: #6F2968;
     color: #fff!important;
     top: 60px;
     border: 2px solid #000000;
@@ -302,10 +301,10 @@ overflow-y: auto!important;
 }
 
 ::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
+    width: 6px;               /* width of the entire scrollbar */
   }
 ::-webkit-scrollbar-thumb {
     background-color: rgb(86, 86, 86);    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid rgb(185, 185, 185);  /* creates padding around scroll thumb */
+
   }
