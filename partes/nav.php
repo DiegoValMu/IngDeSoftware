@@ -36,12 +36,12 @@
                     <li><a href="#"><i class="fas fa-search"></i>Reservas</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Visitas</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Buzón</a></li>
-                    <li><a href="../mantencion"><i class="fas fa-search"></i>Mantencion de instalaciones</a></li>
-                    <li><a href="../perfil"><i class="fas fa-search"></i>Perfil</a></li>
+                    <li><a href="../mantencion?idCondominio=<?php echo $_SESSION["idCondominio"]  ?>"><i class="fas fa-search"></i>Mantencion de instalaciones</a></li>
+                    <li><a href="../perfilAdm"><i class="fas fa-search"></i>Perfil</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Configuracion</a></li>
-                    <li><a href="../calendario"><i class="fas fa-search"></i>Calendario</a></li>
-                    <li><a href="../calendario"><i class="fas fa-search"></i>Registro de mantenciones</a></li>
-                    <li><a href="../tools/listarMantenciones.view.php"><i class="fas fa-search"></i>Lista mantenciones registradas</a></li>
+                    <li><a href="../calendarioAdm?idCondominio=<?php echo $idCondominio ?>"><i class="fas fa-search"></i>Calendario</a></li>
+                    <li><a href="../calendarioAdm?idCondominio=<?php echo $idCondominio ?>"><i class="fas fa-search"></i>Registro de mantenciones</a></li>
+                    <li><a href="../tools/listarMantencionesAdm.php?idCondominio=<?php echo $idCondominio ?>"><i class="fas fa-search"></i>Lista mantenciones registradas</a></li>
                 </ul>
                 </div>
 
@@ -50,9 +50,29 @@
                     
                 
                     <div>
-                        <div class="btn text-light sinDecoracion align-items-center">
-                            <a class="text-light sinDecoracion" href="../inicio/index.php"><i class="bi bi-house-door" style="font-size:28px"></i> Inicio</a>
-                        </div>
+                        
+                        <div class="d-inline-flex position-sticky" style="width:auto; top:83%;">
+            <button class="btn btn-toggle text-light collapsed px-0" style="box-shadow:none!important;" id="btn3Dot" data-bs-toggle="collapse" data-bs-target="#logout" aria-expanded="false">
+                        <p class="m-0"><i class="bi bi-three-dots-vertical" style="font-size: 28px;"></i>  </p>
+            </button>
+            </div>
+
+            
+
+            <div class="collapse position-absolute p-2 rounded border" style="top:81px; right: 0px ;width: 150px; background-color:#6F2968; z-index:1;" id="logout">
+                <ul class="btn-toggle-nav m-0 list-unstyled fw-normal text-light smaller">
+                <li> <a class="sinDecoracion text-light py-1 px-2" href="../perfil/"></i> Mi perfil</a></li>
+                               
+                                
+                               <div class="dropdown-divider"></div>
+                                <li><a class="sinDecoracion text-light py-1 px-2" href="../EdifRed/index.php"></i> Cerrar sesión</a></li>
+                   
+                    
+                </ul>
+                               
+                            
+                              
+            </div>
                     </div>
                 </div>
         </div>

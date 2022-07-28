@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     
-    <link rel="stylesheet" type="text/css" href="../calendario/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../calendarioAdm/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
@@ -34,6 +35,7 @@
     <!-- dataTable -->
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
+   <link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
    
 
     <title>IG - Grupo 10</title>

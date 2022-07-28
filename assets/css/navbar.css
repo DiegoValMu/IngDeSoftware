@@ -33,7 +33,6 @@
     color: #fff!important;
     cursor: pointer;
     font-weight: bold;
-    text-shadow: 3px 2px 2px #000000;
     
 
 }
@@ -66,10 +65,6 @@
 
 .derecha{
     right: 20px;
-}
-
-.sinDecoracion{
-    text-shadow: 3px 2px 2px #000000;
 }
 
 .btnNav{

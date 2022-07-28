@@ -14,7 +14,7 @@ body {
 
 a:hover {
     text-decoration: none;
-    color: #fff;
+
 }
 
 .bg-primary { background-color: var(--primary) !important; }
@@ -265,33 +265,27 @@ svg.bi.bi-person-circle{
     height: 32rem;
   }
   
+
   .herramienta{
     text-align: justify;
     padding: 5px;
     border-radius: 5px;
-    background-color: #111B54;
+    background-color: #fff;
     max-width: 250px;
     min-width: 250px;
-    text-shadow: 2px 2px 5px #000000;
-
+    border: 1px solid #111B54;
+    
   }
 
   .btn-herramienta{
-    color: #fff;
+    color: #111B54!important;
     
   }
 
-  .herramienta:hover{
+  .btnMenuMan:hover{
     box-shadow: 0px 0px 5px 1px #000000;
   }
 
-  .herrmienta:hover 
-
-.herramienta a{
-    
-        text-shadow: 3px 2px 2px #000000;
-    
-}
 
 
 /*footer*/

@@ -18,7 +18,7 @@
 							<h4 class="mega-info-title" style="color: #B84368; font-size: 28px; line-height: 2;">
 								Seguridad				</h4>
 							<div class="mega-info-desc" style="">
-								<p style="text-align: center;"><span style="font-weight: 400;">Mejora la seguridad y optimiza el control de las mantenciones del condominio</span></p>
+								<p style="text-align: center;"><span style="font-weight: 400;">Mejora la seguridad y optimiza el control de fallas en las instalaciones del condominio</span></p>
 								<hr>
 								<p style="text-align: left;"><span style="font-weight: 600; font-size: 14px;">Características populares:</span></p>
 								<p align="left" > <i class="bi bi-check-circle-fill" style="color:orange;"></i> <span style="font-weight: 400; font-size: 15px;">Control de operaciones</span></p>

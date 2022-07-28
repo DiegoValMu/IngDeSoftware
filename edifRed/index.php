@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     
-    <link rel="stylesheet" type="text/css" href="../calendario/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../calendarioAdm/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
@@ -35,7 +35,7 @@
 
     <link rel="stylesheet" href="../assets/css/contact-form.css">
 
-    <title>IG - Grupo 10</title>
+    <title>ISW - Grupo 10</title>
 </head>
 
 <body >
@@ -117,7 +117,7 @@ include('planesModal.php');
                              <div class="carousel-caption text-right " style="top:40%;">
                                <h1>Comienza a usarlo hoy mismo</h1>
                                <p>Registrate y realiza una prueba gratis de los servicios que tenemos para ti</p>
-                               <button id="myInput" type="button" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#myModal">
+                               <button id="myInput" type="button" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#">
                                  Registrarse
                                 </button>
 
@@ -197,72 +197,18 @@ include('planesModal.php');
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../calendario/js/jquery-3.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+<script src="../calendarioAdm/js/jquery-3.0.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="../js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 <script src="../js/contact-form.js"></script>
 <script src="../js/validator.min.js"></script>
-<script>
 
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+<script src="../js/login.js"></script>
 
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
-
-
-var myModal2 = document.getElementById('myModal2')
-var myInput2 = document.getElementById('myInput2')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput2.focus()
-})
-
-var myInput3 = document.getElementById('myInput3')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput3.focus()
-})
-
-
-
-
-
-            const botonEsconder = document.getElementById('btn-login');
- 
-            cargarEventsListeners();
-            function cargarEventsListeners() {
-                botonEsconder.addEventListener('click', mostrarOcultarSidebar);
-
-
-            }
-            
-            function mostrarOcultarSidebar(e){
-                const sidebar = document.querySelector('#sidebar-container-inicio')
-                if(sidebar.classList.contains('activo3')){
-                    sidebar.classList.remove('activo3');
-                    sidebar.classList.add('pasivo3');
-                } else {
-                    sidebar.classList.remove('pasivo3');
-                    sidebar.classList.add('activo3');
-            
-                }
-                    
-            }
-
-            //$('#svg.bi.bi-list').click(function() {
-              //  $('#sidebar-container').show("slide", {direction: "left"}, 500);
-                //$('.menu--mobile-overlay').fadeToggle(500);
-            //});
-
-
-            
-            
-</script>
+<script src="../js/edifred.js"></script>
 </body>
 
 

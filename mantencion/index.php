@@ -1,4 +1,86 @@
-    <!-- head -->
+<?php 
+session_start();
+include ('../calendarioAdm/config.php');
+$idAdmin = $_SESSION["id_usuario"];
+
+$idCondominio = $_GET["idCondominio"];
+
+$_SESSION["idCondominio"] = $idCondominio;
+
+$resultNombre = $con->query("SELECT * FROM condominio WHERE  cod_condominio = '".$idCondominio."'");
+
+                      
+while( $dataNombre = mysqli_fetch_array($resultNombre)){
+      $nombreCondominio = $dataNombre["nomb_condominio"];
+      $_SESSION["idEncargado"] = $dataNombre["id_encargado"];
+};
+
+$resultTotal = $con->query("SELECT COUNT(m.cod_mantencion) AS totalContado
+                            FROM mantencion m, encargado e, condominio c 
+                            WHERE c.id_encargado = e.id_encargado 
+                            AND m.id_encargado =e.id_encargado 
+                            AND c.cod_condominio = '".$idCondominio."'");
+
+                      
+while( $dataTotal = mysqli_fetch_array($resultTotal)){
+      $totalCondminios = $dataTotal["totalContado"];
+};
+
+$resultTotalRealizadas = $con->query("SELECT COUNT(m.cod_mantencion) AS totalContado
+                            FROM mantencion m, encargado e, condominio c 
+                            WHERE m.estado = 1
+                            AND c.id_encargado = e.id_encargado 
+                            AND m.id_encargado =e.id_encargado 
+                            AND c.cod_condominio = '".$idCondominio."'");
+
+                      
+while( $dataTotalRealizadas = mysqli_fetch_array($resultTotalRealizadas)){
+      $totalCondminiosRealizadas = $dataTotalRealizadas["totalContado"];
+};
+
+$resultTotalCanceladas = $con->query("SELECT COUNT(m.cod_mantencion) AS totalContado
+                            FROM mantencion m, encargado e, condominio c 
+                            WHERE m.estado = 4
+                            AND c.id_encargado = e.id_encargado 
+                            AND m.id_encargado =e.id_encargado 
+                            AND c.cod_condominio = '".$idCondominio."'");
+
+                      
+while( $dataTotalCanceladas = mysqli_fetch_array($resultTotalCanceladas)){
+      $totalCondminiosCanceladas = $dataTotalCanceladas["totalContado"];
+};
+
+$resultTotalEspera = $con->query("SELECT COUNT(m.cod_mantencion) AS totalContado
+                            FROM mantencion m, encargado e, condominio c 
+                            WHERE m.estado = 3
+                            AND c.id_encargado = e.id_encargado 
+                            AND m.id_encargado =e.id_encargado 
+                            AND c.cod_condominio = '".$idCondominio."'");
+
+                      
+while( $dataTotalEspera = mysqli_fetch_array($resultTotalEspera)){
+      $totalCondminiosEspera = $dataTotalEspera["totalContado"];
+};
+
+$resultTotalCurso = $con->query("SELECT COUNT(m.cod_mantencion) AS totalContado
+                            FROM mantencion m, encargado e, condominio c 
+                            WHERE m.estado = 2
+                            AND c.id_encargado = e.id_encargado 
+                            AND m.id_encargado =e.id_encargado 
+                            AND c.cod_condominio = '".$idCondominio."'");
+
+                      
+while( $dataTotalCurso = mysqli_fetch_array($resultTotalCurso)){
+      $totalCondminiosCurso = $dataTotalCurso["totalContado"];
+};
+
+
+
+
+?> 
+
+
+<!-- head -->
     <?php include('../partes/head.php') ?>
     <!-- fin head -->
 
@@ -18,168 +100,83 @@
         <div id="content" class="bg-light w-100">
 
               <section class="bg-light border-bottom ">
-                  <div class="container"> 
-                            <h1 class="font-weight-bold py-4 text-center mb-0">Areá de mantención de instalaciones</h1>
+                  <div class="container" align="center"> 
+                  <h1 class="font-weight-bold py-2 text-center mb-0">Areá de mantención de instalaciones <br> Condominio: <?php echo $nombreCondominio ?>  </h1>
+                            
                 </div>
               </section>
 
               
-              <section class="rounded position-relative my-4" style=" min-width: 300px; width: 80%!important; margin-left: auto!important; margin-right: auto!important;">
+              <section class="rounded position-relative my-4" style=" min-width: 300px; width: 85%!important; margin-left: auto!important; margin-right: auto!important;">
               
-              <div class="container h-100 rounded mb-5 bg-light" align="center">
+              <div class="container h-100 rounded mb-4 bg-light border py-2" align="center">
 
               <h5 class="py-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Opciones de registro y control de mantenciones </h5>
               
-                      <div class="herramienta d-inline-flex my-2  " style="margin-left: 5%; margin-right:5%; ">
-                       <a href="../calendario" class="btn-herramienta" >
-                         
-                       <h6 class="border-bottom text-center"> <i class="bi bi-calendar-week"></i> Calendario de Registro</h6>
-                         <p class="largo ">Area designada para registrar, modificar y eliminar mantenciones previstas para las instalaciones</p>
-                         <p class="text-center m-0"><i class="bi bi-arrow-right-circle" style="font-size: 28px;" ></i></p>
+                      <div class="p-2 border btnMenuMan rounded d-inline-flex m-2 font-weight-bold " style="width:18rem;">
+                       <a href="../calendarioAdm/index.php" class="btn-herramienta p-2 w-100 text-center" style="font-size:18px;">             
+                       <i class="bi bi-calendar-week"></i> Calendario de Registro
                          </a>
                        </div>
-
-                       <div class="herramienta  d-inline-flex my-2  " style="margin-left: 5%; margin-right:5%;">
-                       <a href="#" class="btn-herramienta" >
-                         
-                       <h6 class="border-bottom text-center"><i class="bi bi-file-earmark-plus"></i> Formulario registro empresas</h6>
-                         <p class="largo ">Formulario para registrar empresas prestadoras de servicios, encargadas principalmente del mantenimiento de las instalaciones</p>
-                         <p class="text-center m-0"><i class="bi bi-arrow-right-circle" style="font-size: 28px;" ></i></p>
-                         </a>
-                       </div>
-             
-                       <div class="herramienta  d-inline-flex my-2  " style="margin-left: 5%; margin-right:5%;">
-                       <a href="../tools/listarMantenciones.view.php" class="btn-herramienta" >
-                         
-                       <h6 class="border-bottom text-center"><i class="bi bi-layout-text-sidebar-reverse"></i></i> Listado de mantenciones</h6>
-                         <p class="largo ">Lista de todas las mantenciones registradas en el tiempo</p>
-                         <p class="text-center m-0"><i class="bi bi-arrow-right-circle" style="font-size: 28px;" ></i></p>
-                         </a>
+                              
+                       <div class="p-2 border btnMenuMan rounded d-inline-flex m-2 font-weight-bold" style="width:18rem;">
+                       <a href="../tools/listarMantencionesAdm.php" class="btn-herramienta p-2 w-100 text-center" style="font-size:18px;" >
+                          <i class="bi bi-layout-text-sidebar-reverse"></i> Listado de mantenciones
+                       </a>
                        </div>
              
                        
-
-                       <div class="herramienta  d-inline-flex my-2  " style="margin-left: 5%; margin-right:5%;">
-                       <a href="#" class="btn-herramienta" >
-                         
-                       <h6 class="border-bottom text-center"> <i class="fa fa-list"></i> Lista de empresas</h6>
-                         <p class="largo ">Lista de empresas prestadoras de servicios que han trabajado en mantenciones de las instalaciones</p>
-                         <p class="text-center m-0"><i class="bi bi-arrow-right-circle" style="font-size: 28px;" ></i></p>
-                         </a>
-                       </div>
                 </div>
 
 
-                <div class="container h-100 rounded mb-5 bg-light border" align="center">
-                <h5 class="py-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Mantenciones programadas del mes </h5>
-
-                <div class="container pb-2 bg-light ">
-                        <h6 class="font-weight-bold py-2" align="center">Mantenciones del mes: Julio</h6>
-                        <table id="notificaciones" class="table table-striped w-75 border">
-                            <thead>
-                                <tr>
-                                    <th>Mantención</th>
-                                    <th>Estado</th>
-                                    <th>Desde</th>
-                                    <th>Hasta</th>    
-                                </tr>
-                            </thead>
-                            <tbody class="">
-                            <?php
-                      include ('../calendario/config.php');
-                      $result = $con->query("SELECT * FROM mantencion WHERE estado != 1 AND fecha_inicio between '2022-07-01' and '2022-07-30'");
-                       while( $data = mysqli_fetch_array($result)){
-                      ?>
-                      <tr align="left">
-                        <td><?php  echo $data["tipo_man"];?></td>
-
-                        <td><?php switch($data["estado"]){
-                                      case 1:
-                                        ?> <i class="bi bi-check-circle" style="color:green;"></i>  <?php echo "Realizada";
-                                      break;
-                                      case 2:
-                                        ?> <i class="bi bi-play-circle" style="color:green;"></i>  <?php echo "En curso";
-                                      break;
-                                      case 3:
-                                        ?> <i class="bi bi-pause-circle" style="color:yellow;"></i>  <?php echo "En espera" ;
-                                      break;
-                                      case 4:
-                                        ?> <i class="bi bi-x-circle-fill" style="color:crimson;"></i>  <?php echo "Cancelada"  ;
-                                      break;
-                                      default:
-                                        echo "sin seleccionar";
-                                      break;
-                        } ?></td>
-
-                        
-                        <td><?php   $timestampi = strtotime($data["fecha_inicio"]); 
-                                    $newDatei = date("d-m-Y", $timestampi );
-                                    echo "$newDatei";
-                        ?></td>
-                        <td><?php   $timestampf = strtotime($data["fecha_fin"]); 
-                                    $newDatef = date("d-m-Y", $timestampf );
-                                    echo "$newDatef";
-                        ;?></td>
-                      </tr>
-                      <?php   }  ?>
-                            </tbody>
-                        </table>
-
-                    </div>
 
 
-                </div>
 
-                <div class="container rounded  bg-light border" align="center">
-                <h5 class="py-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Mantenciones realizadas en las instalaciones </h5>
+                <div class="container h-100 rounded mb-4 bg-light border py-2" align="center">
+
+              <h5 class="py-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Total Mantenciones Registradas: <?php echo $totalCondminios; ?></h5>
+              
+                  
+
+                  <div class="card rounded bg-light border p-2 m-2 d-inline-flex" align="center" style="width:250px;">
+                      <h5 class="p-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Realizadas</h5>
                 
-                <div class="container pb-5 bg-light">
-                        <h6 class="font-weight-bold py-2" align="center">año 2022</h6>
-                        <table id="notificaciones2" class="table table-striped w-75 border">
-                            <thead>
-                                <tr>
-                                    <th>Mantención</th>
-                                    <th>Estado</th>
-                                    <th>Desde</th>
-                                    <th>Hasta</th>    
-                                </tr>
-                            </thead>
-                            <tbody class="">
-                            <?php
-                      include ('../calendario/config.php');
-                      $result = $con->query("SELECT * FROM mantencion WHERE estado = 1");
-                       while( $data = mysqli_fetch_array($result)){
-                      ?>
-                      <tr align="left">
-                        <td><?php  echo $data["tipo_man"];?></td>
-
-                        <td><?php switch($data["estado"]){
-                                      case 1:
-                                        ?> <i class="bi bi-check-circle" style="color:green;"></i>  <?php echo "Realizada";
-                                      break;
-                                      default:
-                                        echo "sin seleccionar";
-                                      break;
-                        } ?></td>
-
-                        
-                        <td><?php   $timestampi = strtotime($data["fecha_inicio"]); 
-                                    $newDatei = date("d-m-Y", $timestampi );
-                                    echo "$newDatei";
-                        ?></td>
-                        <td><?php   $timestampf = strtotime($data["fecha_fin"]); 
-                                    $newDatef = date("d-m-Y", $timestampf );
-                                    echo "$newDatef";
-                        ;?></td>
-                      </tr>
-                      <?php   }  ?>
-                            </tbody>
-                        </table>
-
+                      <div class="bg-light">
+                      <canvas id="ChartRealizadas" ></canvas>
+                       
+                      </div>
+              
+              
                     </div>
+
+                    <div class="card rounded bg-light border p-2 m-2 d-inline-flex" align="center" style="width:250px;">
+                      <h5 class="p-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>En Curso</h5>
+                
+                      <div class="bg-light">
+                      <canvas id="ChartEnCurso" ></canvas>
+                      </div>
               
               
-              </div>
+                    </div>
+                    <div class="card rounded bg-light border p-2 m-2 d-inline-flex" align="center" style="width:250px;">
+                      <h5 class="p-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>En Espera</h5>
+                
+                      <div class="bg-light">
+                      <canvas id="ChartEnEspera" ></canvas>
+                      </div>
+              
+              
+                    </div>
+                    <div class="card rounded bg-light border p-2 m-2 d-inline-flex" align="center" style="width:250px;">
+                      <h5 class="p-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Canceladas</h5>
+                
+                      <div class="bg-light">
+                      <canvas id="ChartCanceladas" ></canvas>
+                      </div>
+              
+              
+                    </div>
+                </div>
               </section>
 
               
@@ -197,9 +194,8 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="../calendarioAdm/js/jquery-3.0.0.min.js"></script>
+ 
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -210,6 +206,39 @@
         crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
     <script src="../js/tablaNoti.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('select').addClass("form-control");
+        $('select').addClass("p-1");
+        $('select').addClass("h-25");
+
+     
+      });
+      var totalCond = "<?php echo $totalCondminios; ?> ";
+      var totalCondRea = "<?php echo $totalCondminiosRealizadas; ?> ";
+      var totalCondCan = "<?php echo $totalCondminiosCanceladas; ?> ";
+      var totalCondEsp = "<?php echo $totalCondminiosEspera; ?> ";
+      var totalCondCur = "<?php echo $totalCondminiosCurso; ?> ";
+
+      var totalRea = totalCond-totalCondRea;
+      var totalCan = totalCond-totalCondCan;
+      var totalEsp = totalCond-totalCondEsp;
+      var totalCur = totalCond-totalCondCur;
+
+
+
+    </script>
+
+
+
+
+
+    <script src="../js/graficoRealizadas.js"></script>
+    <script src="../js/graficoCanceladas.js"></script>
+    <script src="../js/graficoEnEspera.js"></script>
+    <script src="../js/graficoEnCurso.js"></script>
+
 
 
       </body>
