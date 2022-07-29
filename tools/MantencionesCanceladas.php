@@ -13,7 +13,7 @@
                                 <tr>
                                     <th >ID</th>									
                                     <th>Mantención</th>                              
-									<th>Observacion</th>
+									                  <th>Observacion</th>
                                 </tr>  
                             </thead>
                             <tbody class="text-center" style="font-size: 14px;">

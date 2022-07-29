@@ -1,6 +1,6 @@
 <?php 
 
-include ('../calendarioAdm/config.php');
+include ('../conexion/config.php');
 
 $SqlCondominio   = ("SELECT *
                         FROM condominio c, encargado e, ciudad ciu  

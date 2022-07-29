@@ -1,6 +1,6 @@
 <?php
 
-require("../calendarioAdm/config.php");
+require("../conexion/config.php");
 $RUT           = $_REQUEST['rutAdmin'];
 $DV            = $_REQUEST['dvA'];
 $password      = $_REQUEST['passAdmin'];

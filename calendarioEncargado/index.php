@@ -9,12 +9,12 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mi Calendario:: Mantenciones</title>
 	<link rel="stylesheet" href="">
-	<link rel="stylesheet" type="text/css" href="../calendarioEncargado/css/fullcalendar.min.css">
+	<link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/fullcalendar.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../calendarioEncargado/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../calendarioEncargado/css/home.css">
+	<link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/home.css">
   <link rel="stylesheet" href="../assets/css/style.css">
  <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
 
@@ -27,7 +27,7 @@ session_start();
 <body>
 
 <?php
-include('config.php');
+include('../conexion/config.php');
 
 $encargado = $_SESSION['id_usuario'];
 
@@ -78,13 +78,13 @@ $encargado = $_SESSION['id_usuario'];
 
 
 
-<script src ="../calendarioEncargado/js/jquery-3.0.0.min.js"> </script>
-<script src="../calendarioEncargado/js/popper.min.js"></script>
-<script src="../calendarioEncargado/js/bootstrap.min.js"></script>
+<script src ="../extencionesCalendario/js/jquery-3.0.0.min.js"> </script>
+<script src="../extencionesCalendario/js/popper.min.js"></script>
+<script src="../extencionesCalendario/js/bootstrap.min.js"></script>
 
 
-<script type="text/javascript" src="../calendarioEncargado/js/moment.min.js"></script>	
-<script type="text/javascript" src="../calendarioEncargado/js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="../extencionesCalendario/js/moment.min.js"></script>	
+<script type="text/javascript" src="../extencionesCalendario/js/fullcalendar.min.js"></script>
 <script src='locales/es.js'></script>
 
 <script type="text/javascript">

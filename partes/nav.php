@@ -59,13 +59,11 @@
 
             
 
-            <div class="collapse position-absolute p-2 rounded border" style="top:81px; right: 0px ;width: 150px; background-color:#6F2968; z-index:1;" id="logout">
+            <div class="collapse position-absolute p-2 rounded border" style="top:4rem; right: 0px ;width: 150px; background-color:#6F2968; z-index:1;" id="logout">
                 <ul class="btn-toggle-nav m-0 list-unstyled fw-normal text-light smaller">
-                <li> <a class="sinDecoracion text-light py-1 px-2" href="../perfil/"></i> Mi perfil</a></li>
-                               
-                                
-                               <div class="dropdown-divider"></div>
-                                <li><a class="sinDecoracion text-light py-1 px-2" href="../EdifRed/index.php"></i> Cerrar sesión</a></li>
+                    <li> <a class="sinDecoracion text-light py-1 px-2" href="../perfil/"></i> Mi perfil</a></li>                               
+                       <div class="dropdown-divider"></div>
+                    <li><a class="sinDecoracion text-light py-1 px-2" href="../EdifRed/index.php"></i> Cerrar sesión</a></li>
                    
                     
                 </ul>

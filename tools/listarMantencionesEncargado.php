@@ -53,7 +53,7 @@ session_start();
                     <tbody>
                       <?php
                       $encargado = $_SESSION['id_usuario']; 
-                      include ('../calendarioEncargado/config.php');
+                      include ('../conexion/config.php');
                       $result = $con->query("SELECT * FROM mantencion WHERE id_encargado = '".$encargado."'");
                        while( $data = mysqli_fetch_array($result)){
                       ?>

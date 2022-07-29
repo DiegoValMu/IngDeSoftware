@@ -1,6 +1,6 @@
 <?php 
 
-include ('../calendarioAdm/config.php');
+include ('../conexion/config.php');
 
 
 $idCondominio = $_REQUEST['idCondominio'];
@@ -24,7 +24,7 @@ while ($dataEnc = mysqli_fetch_assoc($resultCondominio)){
         'id'=>$dataEnc["cod_mantencion"],
         'mantencion'=>$dataEnc["nomb_mantencion"],
         'observacion'=>$dataEnc["observacion"],
-        'costo'=>$dataEnc["costo_servicio"],
+        'costo'=>$dataEnc["Costo_servicio"],
         'fecha_inicio'=> date('d-m-Y', strtotime($dataEnc["fecha_inicio"])) ,
         'fecha_fin'=>  date('d-m-Y', strtotime($dataEnc["fecha_fin"])),
         'contratista'=>$dataEnc["nomb_contratista"]." ".$dataEnc["apellidos_contratista"],

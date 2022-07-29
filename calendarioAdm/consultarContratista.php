@@ -7,7 +7,7 @@
 $idMantencion = $_REQUEST['idEvento'];
 
 
-include ('../calendarioAdm/config.php');
+include ('../conexion/config.php');
 
 $SqlMantencion   = ("SELECT * 
                     FROM mantencion m, realiza r, contratista c

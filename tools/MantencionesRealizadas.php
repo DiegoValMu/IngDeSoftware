@@ -14,12 +14,12 @@
                                 <tr>
                                     <th >ID</th>									
                                     <th>Mantención</th>                              
-									<th>Observacion</th>
-									<th>Costo</th>
-									<th>Fecha Inicio</th>
-									<th>Fecha Fin</th>
-									<th>Contratista</th>
-									<th>Empresa</th>    
+								                  	<th>Observacion</th>
+								                  	<th>Costo</th>
+								                  	<th>Fecha Inicio</th>
+								                  	<th>Fecha Fin</th>
+								                  	<th>Contratista</th>
+								                  	<th>Empresa</th>    
                                 </tr>
                                 
                             </thead>

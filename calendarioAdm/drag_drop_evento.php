@@ -2,7 +2,7 @@
 date_default_timezone_set("America/Chile");
 setlocale(LC_ALL,"es_ES");
 
-include('config.php');
+include('../conexion/config.php');
                         
 $idEvento         = $_REQUEST['idEvento'];
 $start            = $_REQUEST['start'];

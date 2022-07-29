@@ -1,31 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if(document.querySelector("#formAdmins")){
     let form = document.querySelector("#formAdmins");
     form.onsubmit = function (event){

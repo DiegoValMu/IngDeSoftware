@@ -15,7 +15,7 @@ $id= '';
 $id = codrandom();
 
 
-require("config.php");
+require("../conexion/config.php");
 $nomb_man            = ucwords($_REQUEST['evento']);
 $estado_man          = ucwords($_REQUEST['estado']);
 $observacion_man     = ucwords($_REQUEST['observacion']);

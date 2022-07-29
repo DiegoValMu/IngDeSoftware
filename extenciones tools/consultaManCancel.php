@@ -1,6 +1,6 @@
 <?php 
 
-include ('../calendarioAdm/config.php');
+include ('../conexion/config.php');
 
 
 $idCondominio = $_REQUEST['idCondominio'];

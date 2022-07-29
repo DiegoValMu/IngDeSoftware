@@ -13,12 +13,12 @@ $idCondominio = $_SESSION["idCondominio"];
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mi Calendario:: Mantenciones</title>
 	<link rel="stylesheet" href="">
-	<link rel="stylesheet" type="text/css" href="../calendarioAdm/css/fullcalendar.min.css">
+	<link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/fullcalendar.min.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../calendarioAdm/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../calendarioAdm/css/home.css">
+	<link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/home.css">
   <link rel="stylesheet" href="../assets/css/style.css">
  <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
 
@@ -31,7 +31,7 @@ $idCondominio = $_SESSION["idCondominio"];
 <body>
 
 <?php
-include('config.php');
+include('../conexion/config.php');
 
   $SqlEventos   = ("SELECT * 
                     FROM mantencion m, encargado e, condominio c
@@ -79,21 +79,23 @@ include('config.php');
               <div id="calendar" class="bg-light rounded"></div>
 
 
-                <?php  
+               
+
+
+
+<script src ="../extencionesCalendario/js/jquery-3.0.0.min.js"> </script>
+<script src="../extencionesCalendario/js/popper.min.js"></script>
+<script src="../extencionesCalendario/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" src="../extencionesCalendario/js/moment.min.js"></script>	
+<script type="text/javascript" src="../extencionesCalendario/js/fullcalendar.min.js"></script>
+<script src='../extencionesCalendario/locales/es.js'></script>
+
+<?php  
                 include('modalNuevoEvento.php');
                 include('modalUpdateEvento.php');
                 ?>
-
-
-
-<script src ="../calendarioAdm/js/jquery-3.0.0.min.js"> </script>
-<script src="../calendarioAdm/js/popper.min.js"></script>
-<script src="../calendarioAdm/js/bootstrap.min.js"></script>
-
-
-<script type="text/javascript" src="../calendarioAdm/js/moment.min.js"></script>	
-<script type="text/javascript" src="../calendarioAdm/js/fullcalendar.min.js"></script>
-<script src='locales/es.js'></script>
 
 <script type="text/javascript">
   const vacio = "";
@@ -124,10 +126,10 @@ $(document).ready(function() {
       $('select[name=estado]').val(vacio);
       $('input[name=observacion').val(vacio);
 
-      $("input[name=fecha_inicio]").val(start.format('DD-MM-YYYY'));
+      $("input[name=fecha_inicio]").val(start.format('YYYY-MM-DD'));
        
-      var valorFechaFin = end.format("DD-MM-YYYY");
-      var F_final = moment(valorFechaFin, "DD-MM-YYYY").subtract(1, 'days').format('DD-MM-YYYY'); //Le resto 1 dia
+      var valorFechaFin = end.format("YYYY-MM-DD");
+      var F_final = moment(valorFechaFin, "YYYY-MM-DD").subtract(1, 'days').format('YYYY-MM-DD'); //Le resto 1 dia
       $('input[name=fecha_fin').val(F_final); 
       
    
@@ -177,7 +179,7 @@ eventRender: function(event, element) {
             $.ajax({
                    type: "POST",
                    url: 'deleteEvento.php',
-                   data: {id:event._id},
+                   data: {id:event._id,estado:event.estado},
                    success: function(datos)
                    {
                      Swal
@@ -269,6 +271,7 @@ if(e.target.id=="btnCerrar"){
         data: 'idEvento='+idEvento,
         type: "POST",
         success: function (response) {
+          console.log(response);
           $('select[name=contratista]').val(parseInt(response));
         }
       });
@@ -279,8 +282,8 @@ if(e.target.id=="btnCerrar"){
 
 
     $('input[name=observacion').val(event.observacion);
-    $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
-    $('input[name=fecha_fin').val(event.end.format("DD-MM-YYYY"));
+    $('input[name=fecha_inicio').val(event.start.format('YYYY-MM-DD'));
+    $('input[name=fecha_fin').val(event.end.format("YYYY-MM-DD"));
     
 
     
@@ -362,36 +365,6 @@ if(e.target.id=="btnCerrar"){
       mantenciones.slideToggle('slow')
     })
 
-
-    
-/*
-const btnSidebar = document.getElementById("sidebar-container");
- 
-const btnLabel = document.getElementById("btnLabel");
-var src;
-cargarEventsListeners();
-            function cargarEventsListeners() {
-
-
-                btnLabel.addEventListener("click", cambiarBoot )
-
-
-            }
-            
-  function cambiarBoot(){
-    const ruta = document.getElementById("11");
-    ruta.src ="";
-    if(btnSidebar.classList.contains("activo2")){ 
-      ruta.src ="";
-      ruta.src = "../calendario/js/bootstrap.min.js";
-    }else{
-      ruta.src ="";
-      ruta.src = "../js/bootstrap.min.js";
-    }
-
-  }
-
-  */
 });
 
 </script>

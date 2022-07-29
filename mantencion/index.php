@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include ('../calendarioAdm/config.php');
+include ('../conexion/config.php');
 $idAdmin = $_SESSION["id_usuario"];
 
 $idCondominio = $_GET["idCondominio"];

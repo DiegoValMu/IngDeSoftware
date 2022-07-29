@@ -14,9 +14,9 @@
                                 <tr>
                                     <th >ID</th>									
                                     <th>Mantención</th>                              
-									<th>Observacion</th>
-									<th>Fecha Inicio</th>
-									<th>Fecha Fin</th>  
+								                  	<th>Observacion</th>
+								                  	<th>Fecha Inicio</th>
+								                  	<th>Fecha Fin</th>  
                                 </tr>  
                             </thead>
                             <tbody class="text-center" style="font-size: 14px;">

@@ -1,6 +1,6 @@
 <?php
 
-require("../calendarioEncargado/config.php");
+require("../conexion/config.php");
 $RUT           = $_REQUEST['rutE'];
 $DV            = $_REQUEST['DVE'];
 $password      = $_REQUEST['passwordE'];

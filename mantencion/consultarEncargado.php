@@ -5,7 +5,7 @@
 $idCondominio = $_REQUEST['idCondominio'];
 
 
-include ('../calendarioAdm/config.php');
+include ('../conexion/config.php');
 
 $SqlCondominio   = ("SELECT c.cod_condominio, c.nomb_condominio, ciu.nombre_ciudad, e.nomb_encargado 
                         FROM condominio c, encargado e, ciudad ciu  
