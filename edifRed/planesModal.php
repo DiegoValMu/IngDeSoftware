@@ -38,7 +38,7 @@
 							<h4 class="mega-info-title" style="color: #FFB356; font-size: 28px; line-height: 2;">
 								Comunidad					</h4>
 							<div class="mega-info-desc" style="">
-								<p style="text-align: center;"><span style="font-weight: 400;">Mejora la comunicación de la comunidad y la administracion del condominio</span></p>
+								<p style="text-align: center;"><span style="font-weight: 400;">Mejora la comunicación de la comunidad y la administración del condominio</span></p>
 								<hr>
 								<p style="text-align: left;"><span style="font-weight: 600; font-size: 14px;">Características populares:</span></p>
 								<p align="left" > <i class="bi bi-check-circle-fill" style="color:orange;"></i> <span style="font-weight: 400; font-size: 15px;">Pago de gastos comunes online</span></p>
@@ -59,10 +59,10 @@
 							<h4 class="mega-info-title" style="color: #EB745D ; font-size: 28px; line-height: 2;">
 								Finanzas				</h4>
 							<div class="mega-info-desc" style="">
-								<p style="text-align: center;"><span style="font-weight: 400;">Optimiza la gestión del condominio, reduciendo los tiempos de demora en los tramites</span></p>
+								<p style="text-align: center;"><span style="font-weight: 400;">Optimiza la gestión del condominio, reduciendo los tiempos de demora en los trámites</span></p>
 								<hr>
 								<p style="text-align: left;"><span style="font-weight: 600; font-size: 14px;">Características populares:</span></p>
-								<p align="left" > <i class="bi bi-check-circle-fill" style="color:orange;"></i> <span style="font-weight: 400; font-size: 15px;">Calculo de gastos comunes</span></p>
+								<p align="left" > <i class="bi bi-check-circle-fill" style="color:orange;"></i> <span style="font-weight: 400; font-size: 15px;"> Cálculo de gastos comunes</span></p>
 								<p align="left" > <i class="bi bi-check-circle-fill" style="color:orange;"></i><span style="font-weight: 400; font-size: 15px;">Avisos automatizados de mora</span></p>
 								<p align="left" > <i class="bi bi-check-circle-fill" style="color:orange;"></i><span style="font-weight: 400; font-size: 15px;">Bitácora de mantenciones</span></p>
 							</div>

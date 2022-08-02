@@ -9,7 +9,7 @@
       </div>
 
 
-  <form name="formEvento" id="formEvento" action="nuevoEvento.php" class="form-horizontal" method="POST">
+  <form name="formEvento" id="formEvento" action="../calendarioAdm/nuevoEvento.php" class="form-horizontal" method="POST">
 		<div class="form-group">
 			<label for="evento" class="col-sm-12 control-label ">Registro de mantención:</label>
 			<div class="col-sm-12 ">
@@ -20,7 +20,7 @@
       <input type="hidden" name="estado" value="3">
 
    
-    <label for="observacion" class="col-sm-12  ">Observacion en la mantencion: <br></label>
+    <label for="observacion" class="col-sm-12  ">Observación en la mantención: <br></label>
       <div class="col-sm-12 ">
         <input type="text" class="form-control area" name="observacion" id="observacion" />
 		
@@ -33,7 +33,7 @@
       </div>
     
     
-      <label for="fecha_fin" class="col-sm-12 control-label">Fecha de termino</label>
+      <label for="fecha_fin" class="col-sm-12 control-label">Fecha de término</label>
       <div class="col-sm-12 ">
         <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" placeholder="Fecha Final" required/>
       </div>

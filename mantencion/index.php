@@ -101,7 +101,7 @@ while( $dataTotalCurso = mysqli_fetch_array($resultTotalCurso)){
 
               <section class="bg-light border-bottom ">
                   <div class="container" align="center"> 
-                  <h1 class="font-weight-bold py-2 text-center mb-0">Areá de mantención de instalaciones <br> Condominio: <?php echo $nombreCondominio ?>  </h1>
+                  <h1 class="font-weight-bold py-2 text-center mb-0">Área de mantención de instalaciones <br> Condominio: <?php echo $nombreCondominio ?>  </h1>
                             
                 </div>
               </section>
@@ -194,7 +194,9 @@ while( $dataTotalCurso = mysqli_fetch_array($resultTotalCurso)){
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../calendarioAdm/js/jquery-3.0.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
  
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
@@ -205,7 +207,6 @@ while( $dataTotalCurso = mysqli_fetch_array($resultTotalCurso)){
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
-    <script src="../js/tablaNoti.js"></script>
 
     <script>
       $(document).ready(function() {

@@ -3,6 +3,9 @@ date_default_timezone_set("America/Santiago");
 setlocale(LC_ALL,"es_ES");
 //$hora = date("g:i:A");
 
+
+
+
 function codrandom(){
 	$numeroran = random_int(1,100000);
 	return $numeroran;
@@ -12,10 +15,12 @@ $id= '';
 $id = codrandom();
 
 
-require("config.php");
+require("../conexion/config.php");
 $nomb_man            = ucwords($_REQUEST['evento']);
 $estado_man          = ucwords($_REQUEST['estado']);
 $observacion_man     = ucwords($_REQUEST['observacion']);
+
+$idEncargado         =$_REQUEST["idEncargado"];
 
 $nomb_man            = trim($nomb_man);
 $observacion_man     = trim($observacion_man);
@@ -47,7 +52,7 @@ $InsertNuevoEvento = "INSERT INTO mantencion(
       '". $observacion_man."',
       '". $fecha_inicio."',
       '" .$fecha_fin. "',
-      '". 20 ."',
+      '". $idEncargado."',
       '" .$color_evento. "'
   )";
 $resultadoNuevoEvento = mysqli_query($con, $InsertNuevoEvento);

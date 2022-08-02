@@ -30,7 +30,7 @@ $(document).ready(function () {
         "<div class=' col align-items-center'>" +
         "<div class='btn-group'>" +
         "<button class='btn btn-sm btnModificar text-light' style='background-color:#EB745D;'>Administrar</button>" +
-        "<button class='btn btn-sm btnBorrar text-light' style='background-color:#B84368;'>Eliminar</button>" +
+        "" +
         "</div>" +
         "</div>" +
         "</div>",
@@ -97,3 +97,7 @@ $(document).ready(function () {
   
 
   });
+
+
+
+  //<button class='btn btn-sm btnBorrar text-light' style='background-color:#B84368;'>Eliminar</button>

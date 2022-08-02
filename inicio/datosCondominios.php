@@ -1,12 +1,15 @@
 <?php 
+session_start();
+
+$idAdm = $_SESSION["id_usuario"];
 
 include ('../conexion/config.php');
 
 $SqlCondominio   = ("SELECT *
                         FROM condominio c, encargado e, ciudad ciu  
-                        WHERE c.id_admin = '111'
-                        AND c.cod_ciudad = ciu.cod_ciudad
-                        AND c.id_encargado = e.id_encargado");
+                        WHERE  c.cod_ciudad = ciu.cod_ciudad
+                        AND c.id_encargado = e.id_encargado
+                        AND c.id_admin = '".$idAdm."'");
 $resultCondominio = mysqli_query($con, $SqlCondominio);
 $data=array();
 

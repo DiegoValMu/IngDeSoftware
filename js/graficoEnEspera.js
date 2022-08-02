@@ -6,7 +6,7 @@ Chart.defaults.global.defaultFontSize = 15;
 var DataEspera = {
     labels: [
         "Espera",
-        "Resto"
+        "Otras"
     ],
     datasets: [
         {

@@ -18,9 +18,6 @@
                                     
                                     <li><a class="sinDecoracion text-light py-1 my-1 px-2" style="font-size: 14px;  left:10%;"  href="../tools/listarMantencionesEncargado.php"><i class="bi bi-caret-right"></i> Listado de mantenciones</a></li>
                                    
-                                    <li><a class="sinDecoracion text-light py-1 my-1 px-2" style="font-size: 14px;  left:10%;"  href="#"><i class="bi bi-caret-right"></i> Registrar empresa</a></li>
-                                
-                                    <li><a class="sinDecoracion text-light py-1 my-1 px-2" style="font-size: 14px;  left:10%;"  href="#"><i class="bi bi-caret-right"></i> Listado de empresas</a></li>
                                 </ul>
                                
                             
@@ -28,7 +25,7 @@
                     </div>
 
                     <div class="d-inline-flex" style="width:17rem;">
-                        <a href="../perfilEncargado" class="d-block" style="width: 14rem"> <i class="bi bi-person-circle" style="font-size: 20px;"></i> Mi Perfil</a>
+                        <a href="../perfil" class="d-block" style="width: 14rem"> <i class="bi bi-person-circle" style="font-size: 20px;"></i> Mi Perfil</a>
                     </div>
 
                     <div class="d-inline-flex position-sticky" style="width:17rem; top:83%;">

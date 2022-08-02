@@ -15,16 +15,7 @@
         </div>
         
         <div class="nav" id="navbarSupportedContent">
-       <!--     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-           
-            
-
-
-
-              
+    
                     <div  class="buscando">
                         <input autocomplete="off" class="position-relative" type="search" id="buscar" placeholder="Buscar" aria-label="Buscar" required>
                     
@@ -39,9 +30,9 @@
                     <li><a href="../mantencion?idCondominio=<?php echo $_SESSION["idCondominio"]  ?>"><i class="fas fa-search"></i>Mantencion de instalaciones</a></li>
                     <li><a href="../perfilAdm"><i class="fas fa-search"></i>Perfil</a></li>
                     <li><a href="#"><i class="fas fa-search"></i>Configuracion</a></li>
-                    <li><a href="../calendarioAdm?idCondominio=<?php echo $idCondominio ?>"><i class="fas fa-search"></i>Calendario</a></li>
-                    <li><a href="../calendarioAdm?idCondominio=<?php echo $idCondominio ?>"><i class="fas fa-search"></i>Registro de mantenciones</a></li>
-                    <li><a href="../tools/listarMantencionesAdm.php?idCondominio=<?php echo $idCondominio ?>"><i class="fas fa-search"></i>Lista mantenciones registradas</a></li>
+                    <li><a href="../calendarioAdm"><i class="fas fa-search"></i>Calendario</a></li>
+                    <li><a href="../calendarioAdm"><i class="fas fa-search"></i>Registro de mantenciones</a></li>
+                    <li><a href="../tools/listarMantencionesAdm.php"><i class="fas fa-search"></i>Lista mantenciones registradas</a></li>
                 </ul>
                 </div>
 
@@ -61,9 +52,9 @@
 
             <div class="collapse position-absolute p-2 rounded border" style="top:4rem; right: 0px ;width: 150px; background-color:#6F2968; z-index:1;" id="logout">
                 <ul class="btn-toggle-nav m-0 list-unstyled fw-normal text-light smaller">
-                    <li> <a class="sinDecoracion text-light py-1 px-2" href="../perfil/"></i> Mi perfil</a></li>                               
+                    <li> <a class="sinDecoracion text-light py-1 px-2" href="../perfil"></i> Mi perfil</a></li>                               
                        <div class="dropdown-divider"></div>
-                    <li><a class="sinDecoracion text-light py-1 px-2" href="../EdifRed/index.php"></i> Cerrar sesión</a></li>
+                    <li><a class="sinDecoracion text-light py-1 px-2" href="../cerrarSesion.php"></i> Cerrar sesión</a></li>
                    
                     
                 </ul>

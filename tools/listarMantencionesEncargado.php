@@ -1,11 +1,13 @@
 <?php 
 session_start();
 
+$idCondominio = $_SESSION["cod_condominio"];
+
+
 
 ?> 
- 
  <!-- head -->
- <?php include('../partesEncargado/head.php') ?>
+ <?php include('../partes/head.php') ?>
  <head>
    
  </head>
@@ -26,71 +28,57 @@ session_start();
         <!-- Page Content -->
         <div id="content" class="fondo2 w-100">
 
+
+        <?php 
+        include("./MantencionesRealizadas.php");
+        include("./MantencionesEnCurso.php");
+        include("./MantencionesEnEspera.php");
+        include("./MantencionesCanceladas.php");
+        ?> 
+
               <section class=" ">
-                <div class="container">
+                <div class="container bg-light">
                   <div class="row">
-                    <div class="col-md-12 mb-3">
-                      <h2 class="text-center font-weight-bold" id="title">Listado de mantenciones registradas</h2>
+                    <div class="col-md-12 my-2">
+                      <h2 class="text-center font-weight-bold p-2" >Listas Mantenciones registradas</h2>
                     </div>
                   </div>
                 </div>
               </section>
 
-              <section class="py-5" >
-                <div id="tablaLista" class="table-responsive">
-                  <table id="tablaMantenciones" class="table table-striped" style="width:100%">
-                    <thead>
-                      <tr class="text-center">
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
-                        <th>Observacion</th>
-                        <th>Fecha inicio</th>
-                        <th>Fecha termino</th>
-                      </tr>
-                      
-                    </thead>
-                    <tbody>
-                      <?php
-                      $encargado = $_SESSION['id_usuario']; 
-                      include ('../conexion/config.php');
-                      $result = $con->query("SELECT * FROM mantencion WHERE id_encargado = '".$encargado."'");
-                       while( $data = mysqli_fetch_array($result)){
-                      ?>
-                      <tr class="text-center">
-                      <td><?php  echo $data["cod_mantencion"];?></td>
-                        <td><?php  echo $data["nomb_mantencion"];?></td>
-                        <td><?php switch($data["estado"]){
-                                      case 1:
-                                        ?> <i class="bi bi-check-circle" style="color:green;font-size:20px; "></i>  <?php echo "Realizada";
-                                      break;
-                                      case 2:
-                                        ?> <i class="bi bi-play-circle" style="color:green;font-size:20px;"></i>  <?php echo "En curso";
-                                      break;
-                                      case 3:
-                                        ?> <i class="bi bi-stop-circle" style="color:#e4e400;font-size:20px;"></i>  <?php echo "En espera" ;
-                                      break;
-                                      case 4:
-                                        ?> <i class="bi bi-x-circle-fill" style="color:crimson;font-size:20px;"></i>  <?php echo "Cancelada"  ;
-                                      break;
-                                      default:
-                                        echo "sin seleccionar";
-                                      break;
-                        } ?></td>
-                        <td><?php  echo $data["observacion"];?></td>
-                        <td><?php   $timestampi = strtotime($data["fecha_inicio"]); 
-                                    $newDatei = date("m-d-Y", $timestampi );
-                                    echo "$newDatei";
-                        ?></td>
-                        <td><?php   $timestampf = strtotime($data["fecha_fin"]); 
-                                    $newDatef = date("m-d-Y", $timestampf );
-                                    echo "$newDatef";
-                        ;?></td>
-                      </tr>
-                      <?php   }  ?>
-                    </tbody>
-                  </table>
+              <section class="rounded position-relative my-4" style=" min-width: 300px; width: 80%!important; margin-left: auto!important; margin-right: auto!important;">
+              
+              <div class="container h-100 rounded mb-4 bg-light border py-2" align="center">
+
+              <h5 class="py-2 font-weight-bold border-bottom " style="text-align: start ;" ><i class="bi bi-chevron-right"></i>Opciones  </h5>
+              
+                      <div class="herramienta d-inline-flex m-2  ">
+                      <button id="btnReali" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#manReali">
+                               Mantenciones Realizadas
+                      </button>
+                      </h6>
+                       </div>
+
+                       <div class="herramienta  d-inline-flex m-2 ">
+                       <button id="btnEnCur" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#manEnCur">
+                               Mantenciones En Curso
+                      </button>
+                       </div>
+             
+                       <div class="herramienta  d-inline-flex m-2 ">
+                       <button id="btnEnEsp" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#manEnEsp">
+                               Mantenciones En Espera
+                      </button>
+                       </div>
+             
+                       <div class="herramienta  d-inline-flex m-2 ">
+                       <button id="btnCancel" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#manCancel">
+                               Mantenciones Canceladas
+                      </button>
+                       </div>
                 </div>
+              </div>
+               
               </section>
 
 
@@ -106,10 +94,50 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+
+      var idCondominio =<?php echo $idCondominio ?> 
+
+    </script>
 
    
-    <script type="text/javascript" src="../js/tabla.js"></script>
- 
+    <script src="../extenciones tools/tablaMantenciones.js"></script>
+
+ <script>
+
+
+  var myModal = document.getElementById('manCancel')
+  var myInput = document.getElementById('btnCancel')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+    myInput.focus()
+  })
+
+
+  var myModal2 = document.getElementById('manReali')
+  var myInput2 = document.getElementById('btnReali')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+    myInput2.focus()
+  })
+
+  var myModal3 = document.getElementById('manEnCur')
+  var myInput3 = document.getElementById('btnEnCur')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+    myInput3.focus()
+  })
+
+  var myModal4 = document.getElementById('manEnEsp')
+  var myInput4 = document.getElementById('btnEnEsp')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+    myInput4.focus()
+  })
+
+
+  
+ </script>
      
 </body>
 

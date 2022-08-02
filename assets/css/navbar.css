@@ -10,21 +10,6 @@
     display: contents;
 }
 
-.menuSesion{
-    visibility: hidden;
-    position: absolute;
-    background-color: #6F2968;
-    color: #fff!important;
-    top: 60px;
-    border: 2px solid #000000;
-    padding: 5px;
-    border-radius: 5px;
-    z-index: 9;
-    opacity: 0;
-    width: max-content;
-    left: 0px;
-}
-
 .logout{
     display: inline-block;
     position: relative;
@@ -63,9 +48,6 @@
 
 }
 
-.derecha{
-    right: 20px;
-}
 
 .btnNav{
     
@@ -85,10 +67,6 @@
     width: 500px;
 }
 
-.fa-home:before {
-    position: relative;
-    top: 5px;
-}
 
 #box-search{
     display: none;
@@ -205,11 +183,6 @@ svg.bi.bi-search{
 
   }
 
-
-  svg.bi.bi-search:hover{
-    padding: 2px;
-    cursor: pointer;
-}
 
 
 #nav-check{

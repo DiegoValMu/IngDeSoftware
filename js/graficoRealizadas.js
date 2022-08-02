@@ -6,7 +6,7 @@ Chart.defaults.global.defaultFontSize = 15;
 var DataRealizadas = {
     labels: [
         "Realizadas",
-        "Resto"
+        "Otras"
     ],
     datasets: [
         {

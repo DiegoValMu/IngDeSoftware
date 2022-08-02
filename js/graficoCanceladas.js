@@ -9,7 +9,7 @@ Chart.defaults.global.defaultFontSize = 15;
 var DataCanceladas = {
     labels: [
         "Canceladas",
-        "Resto"
+        "Otras"
     ],
     datasets: [
         {

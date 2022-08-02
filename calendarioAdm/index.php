@@ -7,9 +7,11 @@ $idCondominio = $_SESSION["idCondominio"];
 ?> 
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
+  <meta name="description" content="Un calendario de registro">    
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mi Calendario:: Mantenciones</title>
 	<link rel="stylesheet" href="">
@@ -267,7 +269,7 @@ if(e.target.id=="btnCerrar"){
       $('label[name=labelContratista]').removeClass('d-none');
       $('select[name=contratista]').removeClass('d-none');
       $.ajax({
-        url: 'consultarContratista.php',
+        url: '../extencionesCalendario/consultarContratista.php',
         data: 'idEvento='+idEvento,
         type: "POST",
         success: function (response) {

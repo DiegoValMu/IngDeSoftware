@@ -13,18 +13,19 @@ $result = mysqli_query($con, $SqlEventos);
 
 
 while ($data = mysqli_fetch_array($result)){ 
-    if($data["contrasena_encargado"] == $password){
+    if($data["contrasena_encargado"] == $password && $data["digito_verificador_encargado"] == $DV){
         session_start();
         $_SESSION["nombre_usuario"] = $data["nomb_encargado"];
-        $_SESSION["id_usuario"] = $data["id_encargado"];
-        $condominio = $_SESSION['id_usuario'];
+        $_SESSION["idEncargado"] = $data["id_encargado"];
+        $idEncargado = $_SESSION['idEncargado'];
 
-        $SqlEventos   = ("SELECT * FROM condominio WHERE id_encargado ='" .$condominio. "'");
-        $result = mysqli_query($con, $SqlEventos);
+        $SqlCondominio   = ("SELECT * FROM condominio WHERE id_encargado ='" .$idEncargado. "'");
+        $resultCondominio = mysqli_query($con, $SqlCondominio);
         
         
-        while ($data = mysqli_fetch_array($result)){ 
-              $_SESSION["nombre_condominio"] = $data["nomb_condominio"];
+        while ($dataCondominio = mysqli_fetch_array($resultCondominio)){
+            $_SESSION['idCondominio'] = $dataCondominio["cod_condominio"]; 
+            $_SESSION["nombre_condominio"] = $dataCondominio["nomb_condominio"];
           }
         echo true;
     }else{

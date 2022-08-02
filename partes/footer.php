@@ -17,10 +17,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto ">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-2 ">
-            <i class="fas fa-gem me-3"></i>Condominios y Edificios EdifRed Ltda.
+            <i class="fas fa-gem me-3"></i>EdifRed Ltda.
           </h6>
           <p>
-            Somos una empresa chilena dedicada a la prestacion de servicios de software de control administrativo de condominios   
+            Somos una empresa chilena dedicada a la prestación de servicios de software de control administrativo de condominios
           </p>
         </div>
         <!-- Grid column -->

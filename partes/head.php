@@ -1,14 +1,14 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="description" content="Contenido compartido del control de condominios "> 
     <!-- Bootstrap CSS -->
     
-    <link rel="stylesheet" type="text/css" href="../calendarioAdm/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../extencionesCalendario/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 

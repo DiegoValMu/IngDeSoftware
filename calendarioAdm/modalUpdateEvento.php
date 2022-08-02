@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-  <form name="formEventoUpdate" id="formEventoUpdate" action="UpdateEvento.php" method="POST" class="form-horizontal">
+  <form name="formEventoUpdate" id="formEventoUpdate" action="../calendarioAdm/UpdateEvento.php" method="POST" class="form-horizontal">
     <input type="hidden" class="form-control" name="idEvento" id="idEvento">
     <div class="form-group">
       <label for="evento" class="col-sm-12 control-label">Información mantención</label>
@@ -15,7 +15,7 @@
 				<input type="text" class="form-control" name="evento" id="evento" placeholder="Nombre mantención" required/>
 			</div>
 	
-      <label for="estado" class="col-sm-12 control-label ">Estado de la mantencion:</label>
+      <label for="estado" class="col-sm-12 control-label ">Estado de la mantención:</label>
     <div class="col-sm-12">
       <select type="text" name="estado" id="estado" class="form-control" >
         <option value="1">Realizada</option>
@@ -42,7 +42,7 @@
 
 
    
-    <label for="observacion" class="col-sm-12  ">Observacion en la mantencion: <br></label>
+    <label for="observacion" class="col-sm-12  ">Observación en la mantención: <br></label>
       <div class="col-sm-12 ">
         <input type="text" class="form-control area2" name="observacion" id="observacion" />
 			
@@ -55,7 +55,7 @@
       </div>
     
     
-      <label for="fecha_fin" class="col-sm-12 control-label">Fecha de termino</label>
+      <label for="fecha_fin" class="col-sm-12 control-label">Fecha de término</label>
       <div class="col-sm-12 ">
         <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" placeholder="Fecha Final" maxlength="10"  required/>
       </div>

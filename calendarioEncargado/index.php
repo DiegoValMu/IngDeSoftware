@@ -3,9 +3,11 @@ session_start();
 ?> 
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
+  <meta name="description" content="Un calendario de registro">    
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mi Calendario:: Mantenciones</title>
 	<link rel="stylesheet" href="">
@@ -29,11 +31,13 @@ session_start();
 <?php
 include('../conexion/config.php');
 
-$encargado = $_SESSION['id_usuario'];
+$encargado = $_SESSION['idEncargado'];
 
   $SqlEventos   = ("SELECT * FROM mantencion WHERE id_encargado = '".$encargado."'");
   $resulEventos = mysqli_query($con, $SqlEventos);
 
+  $SqlContratista   = ("SELECT * FROM contratista");
+  $resulContratista = mysqli_query($con, $SqlContratista);
 ?>
 
 
@@ -85,7 +89,7 @@ $encargado = $_SESSION['id_usuario'];
 
 <script type="text/javascript" src="../extencionesCalendario/js/moment.min.js"></script>	
 <script type="text/javascript" src="../extencionesCalendario/js/fullcalendar.min.js"></script>
-<script src='locales/es.js'></script>
+<script src='../extencionesCalendario/locales/es.js'></script>
 
 <script type="text/javascript">
   const vacio = "";
@@ -116,10 +120,10 @@ $(document).ready(function() {
       $('select[name=estado]').val(vacio);
       $('input[name=observacion').val(vacio);
 
-      $("input[name=fecha_inicio]").val(start.format('DD-MM-YYYY'));
+      $("input[name=fecha_inicio]").val(start.format('YYYY-MM-DD'));
        
-      var valorFechaFin = end.format("DD-MM-YYYY");
-      var F_final = moment(valorFechaFin, "DD-MM-YYYY").subtract(1, 'days').format('DD-MM-YYYY'); //Le resto 1 dia
+      var valorFechaFin = end.format("YYYY-MM-DD");
+      var F_final = moment(valorFechaFin, "YYYY-MM-DD").subtract(1, 'days').format('YYYY-MM-DD'); //Le resto 1 dia
       $('input[name=fecha_fin').val(F_final); 
       
    
@@ -168,8 +172,8 @@ eventRender: function(event, element) {
         
             $.ajax({
                    type: "POST",
-                   url: 'deleteEvento.php',
-                   data: {id:event._id},
+                   url: '../extencionesCalendario/deleteEvento.php',
+                   data: {id:event._id,estado:event.estado},
                    success: function(datos)
                    {
                      Swal
@@ -208,7 +212,7 @@ eventDrop: function (event, delta) {
   var start = (event.start.format('DD-MM-YYYY'));
   var end = (event.end.format("DD-MM-YYYY"));
     $.ajax({
-        url: 'drag_drop_evento.php',
+        url: '../extencionesCalendario/drag_drop_evento.php',
         data: 'start=' + start + '&end=' + end + '&idEvento=' + idEvento,
         type: "POST",
         success: function (response) {
@@ -233,8 +237,8 @@ if(e.target.id=="btnCerrar"){
 
 }else{
     
-    $('input[name=idEvento]').val(idEvento);
-    $('input[name=evento]').val(event.title);
+    $('input[name=idEvento').val(idEvento);
+    $('input[name=evento').val(event.title);
     switch(event.estado){
       case '1':
         $('select[name=estado]').val(1);
@@ -253,10 +257,27 @@ if(e.target.id=="btnCerrar"){
       break;
     }
     
+    if ($('select[name=estado]').val() == 1 || $('select[name=estado]').val() == 2){
+      $('label[name=labelContratista]').removeClass('d-none');
+      $('select[name=contratista]').removeClass('d-none');
+      $.ajax({
+        url: '../extencionesCalendario/consultarContratista.php',
+        data: 'idEvento='+idEvento,
+        type: "POST",
+        success: function (response) {
+          console.log(response);
+          $('select[name=contratista]').val(parseInt(response));
+        }
+      });
+    }else if ($('select[name=estado]').val() == 3 || $('select[name=estado]').val() == 4) {
+      $('label[name=labelContratista]').addClass('d-none');
+      $('select[name=contratista]').addClass('d-none');
+    }
 
-    $('input[name=observacion]').val(event.observacion);
-    $('input[name=fecha_inicio]').val(event.start.format('DD-MM-YYYY'));
-    $('input[name=fecha_fin]').val(event.end.format("DD-MM-YYYY"));
+
+    $('input[name=observacion').val(event.observacion);
+    $('input[name=fecha_inicio').val(event.start.format('YYYY-MM-DD'));
+    $('input[name=fecha_fin').val(event.end.format("YYYY-MM-DD"));
     
 
     
@@ -333,41 +354,11 @@ if(e.target.id=="btnCerrar"){
       mantenciones.slideToggle('slow')
     })
 
-    $('#btnConfig').click(function() {
-      const mantenciones = $('#orders-collapse');
+    $('#btn3Dot').click(function() {
+      const mantenciones = $('#logout');
       mantenciones.slideToggle('slow')
     })
 
-
-    
-/*
-const btnSidebar = document.getElementById("sidebar-container");
- 
-const btnLabel = document.getElementById("btnLabel");
-var src;
-cargarEventsListeners();
-            function cargarEventsListeners() {
-
-
-                btnLabel.addEventListener("click", cambiarBoot )
-
-
-            }
-            
-  function cambiarBoot(){
-    const ruta = document.getElementById("11");
-    ruta.src ="";
-    if(btnSidebar.classList.contains("activo2")){ 
-      ruta.src ="";
-      ruta.src = "../calendario/js/bootstrap.min.js";
-    }else{
-      ruta.src ="";
-      ruta.src = "../js/bootstrap.min.js";
-    }
-
-  }
-
-  */
 });
 
 </script>
