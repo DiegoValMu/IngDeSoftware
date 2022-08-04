@@ -180,7 +180,7 @@ eventRender: function(event, element) {
         
             $.ajax({
                    type: "POST",
-                   url: 'deleteEvento.php',
+                   url: '../extencionesCalendario/deleteEvento.php',
                    data: {id:event._id,estado:event.estado},
                    success: function(datos)
                    {
@@ -220,7 +220,7 @@ eventDrop: function (event, delta) {
   var start = (event.start.format('DD-MM-YYYY'));
   var end = (event.end.format("DD-MM-YYYY"));
     $.ajax({
-        url: 'drag_drop_evento.php',
+        url: '../extencionesCalendario/drag_drop_evento.php',
         data: 'start=' + start + '&end=' + end + '&idEvento=' + idEvento,
         type: "POST",
         success: function (response) {

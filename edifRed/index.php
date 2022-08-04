@@ -28,8 +28,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     
 
-    <link rel="stylesheet" href="../assets/css/contact-form.css">
-
     <title>ISW - Grupo 10</title>
 </head>
 
@@ -140,7 +138,7 @@ include('planesModal.php');
                            <div class="container">
                              <div class="carousel-caption text-left">
                                <h1>Ofrecemos tranquilidad y confort.</h1>
-                               <button id="muInput3" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#myModal">
+                               <button id="muInput3" class="btn btn-lg btn-primary" style="background-color:#6F2968;" data-bs-toggle="modal" data-bs-target="#">
                                aun tienes dudas?, contactanos!
                               </button>
                              </div>
@@ -181,8 +179,6 @@ include('planesModal.php');
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script src="../js/contact-form.js"></script>
-<script src="../js/validator.min.js"></script>
 <script src="../js/login.js"></script>
 <script src="../js/edifred.js"></script>
 </body>

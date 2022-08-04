@@ -57,7 +57,6 @@ CREATE TABLE propietario (
 id_propietario INT PRIMARY KEY ,
 nomb_propietario VARCHAR(20) ,
 apellidos_propietario VARCHAR(20) ,
-cargo VARCHAR(30) ,
 rut_propietario INT ,
 digito_verificador_propietario VARCHAR (1) ,
 correo_propietario VARCHAR (40) ,
@@ -84,6 +83,7 @@ CREATE TABLE contratista (
 id_contratista INT PRIMARY KEY ,
 nomb_contratista VARCHAR(20) ,
 apellidos_contratista VARCHAR(20) ,
+costo_servicio INT ,
 oficio VARCHAR(30) ,
 correo_contratista VARCHAR (40) ,
 telefono_contratista INT );
@@ -104,7 +104,6 @@ CREATE TABLE empresa_mantenciones (
 cod_empresam INT PRIMARY KEY ,
 nomb_Empresa VARCHAR(30) ,
 tipo_mantenciones VARCHAR(30) ,
-costo_servicio INT ,
 detalle_servicio VARCHAR(30) ,
 telefono_empresa INT );
 
@@ -146,19 +145,19 @@ INSERT INTO `ciudad`(`cod_ciudad`,`nombre_ciudad`,`cod_region`) VALUES ('13','la
 
 
 INSERT INTO `administrador`(`id_admin`,`nomb_admin`,`apellidos_adm`,`rut_adm`,`digito_verificador_admin`,`telefono_adm`,`correo_adm`,`contrasena_adm`) 
-        VALUES ('111','Diego','Valderrama Muñoz','18983834','4','+56944818425','diego.valderrama1501@alumnos.ubiobio.cl','holamundo')
+        VALUES ('111','Diego','Valderrama Muñoz','18983834','4','+56944818425','diego.valderrama1501@alumnos.ubiobio.cl','holamundo');
 
 INSERT INTO `encargado`(`id_encargado`,`nomb_encargado`,`apellidos_encargado`,`cargo`,`rut_encargado`,`digito_verificador_encargado`,`telefono_encargado`,`correo_encargado`,`contrasena_encargado`) 
-        VALUES ('10','Juan','Ito Tapia','conserje','26699310','2','+56944818425','diego.valderrama.mu@gmail.cl','holamundo2')
+        VALUES ('10','Juan','Ito Tapia','conserje','26699310','2','+56944818425','diego.valderrama.mu@gmail.cl','holamundo2');
 INSERT INTO `encargado`(`id_encargado`,`nomb_encargado`,`apellidos_encargado`,`cargo`,`rut_encargado`,`digito_verificador_encargado`,`telefono_encargado`,`correo_encargado`,`contrasena_encargado`) 
-        VALUES ('20','Marcela','Torres','portera','12131323','3','+56944818425','diego.valderrama.mu@gmail.cl','holamundo22')
+        VALUES ('20','Marcela','Torres','portera','12131323','3','+56944818425','diego.valderrama.mu@gmail.cl','holamundo22');
 INSERT INTO `encargado`(`id_encargado`,`nomb_encargado`,`apellidos_encargado`,`cargo`,`rut_encargado`,`digito_verificador_encargado`,`telefono_encargado`,`correo_encargado`,`contrasena_encargado`) 
-        VALUES ('30','Samantha','Satre','conserje','15754438','4','+56944818425','diego.valderrama.mu@gmail.cl','holamundo23')
+        VALUES ('30','Samantha','Satre','conserje','15754438','4','+56944818425','diego.valderrama.mu@gmail.cl','holamundo23');
 INSERT INTO `encargado`(`id_encargado`,`nomb_encargado`,`apellidos_encargado`,`cargo`,`rut_encargado`,`digito_verificador_encargado`,`telefono_encargado`,`correo_encargado`,`contrasena_encargado`) 
-        VALUES ('40','Fabian','Muñoz','jardinero','23512434','5','+56944818425','diego.valderrama.mu@gmail.cl','holamundo24')
+        VALUES ('40','Fabian','Muñoz','jardinero','23512434','5','+56944818425','diego.valderrama.mu@gmail.cl','holamundo24');
 
 INSERT INTO `propietario`(`id_propietario`,`nomb_propietario`,`apellidos_propietario`,`rut_propietario`,`digito_verificador_propietario`,`telefono_propietario`,`correo_propietario`,`contrasena_propietario`) 
-        VALUES ('1','Isabella','Valderrama','16123534','2','+56944818425','diego.valderrama.mu@gmail.cl','holamundo3')        
+        VALUES ('1','Isabella','Valderrama','16123534','2','+56944818425','diego.valderrama.mu@gmail.cl','holamundo3');        
 
 
 INSERT INTO `condominio` (`cod_condominio`, `nomb_condominio`, `cod_ciudad`, `id_admin`, `id_encargado`) VALUES ('102', 'Bella vista','1', '111', '10');
@@ -166,8 +165,8 @@ INSERT INTO `condominio` (`cod_condominio`, `nomb_condominio`, `cod_ciudad`, `id
 INSERT INTO `condominio` (`cod_condominio`, `nomb_condominio`, `cod_ciudad`, `id_admin`, `id_encargado`) VALUES ('103', 'Descanso de paz','3', '111', '30');
 INSERT INTO `condominio` (`cod_condominio`, `nomb_condominio`, `cod_ciudad`, `id_admin`, `id_encargado`) VALUES ('104', 'Los Huertos','4', '111', '40');
 
-INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `oficio`, `correo_contratista`, `telefono_contratista`) 
-        VALUES ('1010', 'Jose', 'Peñaylillo', 'Control de plagas', 'jose.peñay@gmail.com', '976642561');
+INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `costo_servicio`, `oficio`, `correo_contratista`, `telefono_contratista`) 
+        VALUES ('1010', 'Jose', 'Peñaylillo', 'Control de plagas', 20000, 'jose.peñay@gmail.com', '976642561');
 
 
 
@@ -179,24 +178,24 @@ INSERT INTO `casa_departamento` (`numero_C_D`, `cod_torre_calle`, `id_propietari
 INSERT INTO `casa_departamento` (`numero_C_D`, `cod_torre_calle`, `id_propietario`) VALUES ('1', '1', '1'), ('2', '2', '1');
 
 
-INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `oficio`, `correo_contratista`, `telefono_contratista`) 
-        VALUES ('1020', 'Isabella', 'Matus', 'Soldadora', 'Isa.matus@gmail.com', '962367132');
-INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `oficio`, `correo_contratista`, `telefono_contratista`) 
-        VALUES ('1030', 'Joaquin', 'Westcoast', 'Electronico', 'joawets@gmail.com', '962561742');
-INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `oficio`, `correo_contratista`, `telefono_contratista`) 
-        VALUES ('1040', 'Constanza', 'Matus', 'Carpintera', 'coni.matus@gmail.com', '987671242');
-INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `oficio`, `correo_contratista`, `telefono_contratista`) 
-        VALUES ('1050', 'Nancy', 'Cifuentes', 'Gasfiter', 'nancygas@gmail.com', '987652831');
+INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `costo_servicio`, `oficio`, `correo_contratista`, `telefono_contratista`) 
+        VALUES ('1020', 'Isabella', 'Matus', 20000, 'Soldadora', 'Isa.matus@gmail.com', '962367132');
+INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `costo_servicio`, `oficio`, `correo_contratista`, `telefono_contratista`) 
+        VALUES ('1030', 'Joaquin', 'Westcoast', 20000, 'Electronico', 'joawets@gmail.com', '962561742');
+INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `costo_servicio`, `oficio`, `correo_contratista`, `telefono_contratista`) 
+        VALUES ('1040', 'Constanza', 'Matus', 20000, 'Carpintera', 'coni.matus@gmail.com', '987671242');
+INSERT INTO `contratista` (`id_contratista`, `nomb_contratista`, `apellidos_contratista`, `costo_servicio`, `oficio`, `correo_contratista`, `telefono_contratista`) 
+        VALUES ('1050', 'Nancy', 'Cifuentes', 20000, 'Gasfiter', 'nancygas@gmail.com', '987652831');
 
 
-INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`, `costo_servicio`, `detalle_servicio`, `telefono_empresa`) 
-        VALUES ('1100', 'Estructuras Matus', 'soldaduras', '30000', 'soldaduras por arco, gas y laser', '945261731');
-INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`, `costo_servicio`, `detalle_servicio`, `telefono_empresa`)
-        VALUES ('1200', 'Maderas Matus', 'carpinteria', '30000', 'Estructuras en madera, trabajo de pintura y barniz', '946761231');
-INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`, `costo_servicio`, `detalle_servicio`, `telefono_empresa`) 
-        VALUES ('1300', 'Electronica Westcoast', 'Revisión circuitos seguridad', '50000', 'Reparación y mantención de alarmas, portones, timbres y cámaras', '965723641');
-INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`, `costo_servicio`, `detalle_servicio`, `telefono_empresa`) 
-        VALUES ('1400', 'Gasfitería Cifuentes', 'Gasfitería', '20000', 'Gasfitería en general, revisión, mantención y creación de circuitos de riego', '965172342');
+INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`,  `detalle_servicio`, `telefono_empresa`) 
+        VALUES ('1100', 'Estructuras Matus', 'soldaduras',  'soldaduras por arco, gas y laser', '945261731');
+INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`,  `detalle_servicio`, `telefono_empresa`)
+        VALUES ('1200', 'Maderas Matus', 'carpinteria', 'Estructuras en madera, trabajo de pintura y barniz', '946761231');
+INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`,  `detalle_servicio`, `telefono_empresa`) 
+        VALUES ('1300', 'Electronica Westcoast', 'Revisión circuitos seguridad',  'Reparación y mantención de alarmas, portones, timbres y cámaras', '965723641');
+INSERT INTO `empresa_mantenciones` (`cod_empresam`, `nomb_Empresa`, `tipo_mantenciones`,  `detalle_servicio`, `telefono_empresa`) 
+        VALUES ('1400', 'Gasfitería Cifuentes', 'Gasfitería',  'Gasfitería en general, revisión, mantención y creación de circuitos de riego', '965172342');
 
 INSERT INTO `trabaja` (`cod_empresam`, `id_contratista`) VALUES ('1400', '1050');
 INSERT INTO `trabaja` (`cod_empresam`, `id_contratista`) VALUES ('1000', '1010');
