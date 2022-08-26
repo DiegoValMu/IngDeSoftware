@@ -9,11 +9,14 @@ $idEvento         = $_REQUEST['idEvento'];
 $idContratista    = $_REQUEST['contratista'];
 
 if(!empty($idContratista)){
-
-$UpdateRealiza = ("INSERT INTO `realiza` (`cod_mantencion`, `id_contratista`) VALUES ('$idEvento', '$idContratista');");
-$resultRealiza = mysqli_query($con, $UpdateRealiza);
-
-
+    $ConsultaExiste = ("SELECT COUNT(cod_mantencion) as count FROM realiza Where cod_mantencion = '".$idEvento."'");
+    $resultExiste = mysqli_query($con, $ConsultaExiste);
+    while ($dataExiste = mysqli_fetch_array($resultExiste)){ 
+        if($dataExiste["count"] == 0 ){
+            $UpdateRealiza = ("INSERT INTO `realiza` (`cod_mantencion`, `id_contratista`) VALUES ('$idEvento', '$idContratista');");
+            $resultRealiza = mysqli_query($con, $UpdateRealiza);
+        }
+    }
 }
 
 

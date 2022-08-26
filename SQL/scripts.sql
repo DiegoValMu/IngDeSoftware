@@ -19,7 +19,7 @@ telefono_adm VARCHAR(30),
 correo_adm VARCHAR(30),
 contrasena_adm VARCHAR(30));
 
-CREATE TABLE Encargado (
+CREATE TABLE encargado (
 id_encargado INT PRIMARY KEY, 
 nomb_encargado VARCHAR(20),
 apellidos_encargado VARCHAR(20),
@@ -102,7 +102,7 @@ FOREIGN KEY (cod_empresam) REFERENCES empresa_mantenciones(cod_empresam));
 
 CREATE TABLE empresa_mantenciones (
 cod_empresam INT PRIMARY KEY ,
-nomb_Empresa VARCHAR(30) ,
+nomb_empresa VARCHAR(30) ,
 tipo_mantenciones VARCHAR(30) ,
 detalle_servicio VARCHAR(30) ,
 telefono_empresa INT );

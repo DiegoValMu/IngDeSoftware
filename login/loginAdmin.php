@@ -8,9 +8,8 @@ $password      = $_REQUEST['passAdmin'];
 $password = trim($password);  
 
 
-$SqlEventos   = ("SELECT * FROM administrador WHERE rut_adm ='" .$RUT. "'");
+$SqlEventos   = ("SELECT * FROM administrador WHERE rut_adm = 18983834");
 $result = mysqli_query($con, $SqlEventos);
-
 
 while ($data = mysqli_fetch_array($result)){ 
     if($data["contrasena_adm"] == $password && $data["digito_verificador_admin"] == $DV){
