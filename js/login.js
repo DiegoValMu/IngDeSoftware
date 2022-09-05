@@ -8,6 +8,8 @@ if(document.querySelector("#formAdmins")){
     }
     async function validarDatos(){
         let rutAdmin = document.querySelector("#rutA").value;
+        rutAdmin = rutAdmin.split(".");
+        rutAdmin = rutAdmin.join('');
         let digito_verificador_admin = document.querySelector("#DVA").value;
         let passAdmin = document.querySelector("#passwordA").value;
 
@@ -52,6 +54,8 @@ if(document.querySelector("#formEncargado")){
     }
     async function validarDatosE(){
         let rutEnc = document.querySelector("#rutE").value;
+        rutEnc = rutEnc.split(".");
+        rutEnc = rutEnc.join('');
         let digito_verificador_encargado = document.querySelector("#DVE").value;
         let passEnc = document.querySelector("#passwordE").value;
 

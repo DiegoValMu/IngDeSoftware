@@ -40,7 +40,7 @@ $(document).ready(function () {
     "columnDefs": [{
 
         "targets": [0], //Comma separated values
-        "visible": true,
+        "visible": false,
         "searchable": true
     }],
 

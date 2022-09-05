@@ -14,7 +14,7 @@
                 <div class="collapse" style=" z-index:1000;" id="formAdm" >
                    <form id="formAdmins" >
                    <div class="form-group">
-                        <input type="text" name="rutA" id="rutA" class="form-control m-0 d-inline-flex" placeholder="RUT" maxlength="8" autocomplete="off" style="width:170px;" required>
+                        <input type="text" name="rutA" id="rutA" class="form-control m-0 d-inline-flex" placeholder="RUT" maxlength="10" autocomplete="off" style="width:170px;" required>
                         <span>-</span>
                         <select name="DVA" id="DVA" class="form-control m-0 p-0 d-inline-flex" style="width:50px" required>
                             <option disabled selected value="DV">DV</option>
@@ -87,7 +87,7 @@
                 <div class="collapse" style=" z-index:1000;" id="formEnc">
                     <form id="formEncargado">
                         <div class="form-group">
-                        <input type="text" name="rutE" id="rutE" class="form-control m-0 d-inline-flex" placeholder="RUT" maxlength="8" autocomplete="off" style="width:170px;" required>
+                        <input type="text" name="rutE" id="rutE" class="form-control m-0 d-inline-flex" placeholder="RUT" maxlength="10" autocomplete="off" style="width:170px;" required>
                         <span>-</span>
                         <select name="DVE" id="DVE" class="form-control m-0 p-0 d-inline-flex" style="width:50px" required>
                             <option disabled selected>DV</option>
@@ -126,6 +126,66 @@
 </div>
 
 
-              
+
+<script>
+    
+Number.prototype.format = function(n, x, s, c) {
+    let re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+        num = this.toFixed(Math.max(0, ~~n));
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+};
+
+
+function setInputFilter(textbox, inputFilter) {
+    ["input"].forEach(function(event) {
+        textbox.addEventListener(event, function() {
+            if (this.id === "rutA") {
+                if (this.value !== "") {
+                    let str = this.value;
+                    let oldstr= str.substring(0, str.length - 1);
+                    let millares = ".";
+                    let decimales = ",";
+                    str = str.split(millares).join("");
+                    if (isNaN(str)) {
+                        this.value = oldstr;
+                    } else {
+                        let numero = parseInt(str);
+                        this.value = numero.format(0, 3, millares, decimales);
+                    }
+                }
+            }
+            if (this.id === "rutE") {
+                if (this.value !== "") {
+                    let str = this.value;
+                    let oldstr= str.substring(0, str.length - 1);
+                    let millares = ".";
+                    let decimales = ",";
+                    str = str.split(millares).join("");
+                    if (isNaN(str)) {
+                        this.value = oldstr;
+                    } else {
+                        let numero = parseInt(str);
+                        this.value = numero.format(0, 3, millares, decimales);
+                    }
+                }
+            }
+        });
+    });
+}
+
+setInputFilter(document.getElementById("rutE"), function(value) {
+    //declare an object RegExp
+    let regex = new RegExp(/^-?\d*$/);
+    //test the regexp
+    return regex.test(value);
+});
+
+setInputFilter(document.getElementById("rutA"), function(value) {
+    //declare an object RegExp
+    let regex = new RegExp(/^-?\d*$/);
+    //test the regexp
+    return regex.test(value);
+});
+</script>
         
         <!-- Fin sidebar -->
