@@ -19,7 +19,7 @@
 
 
                 <div class="d-inline-flex" style="width:18erem;">
-                <a href="../mantencion?idCondominio=<?php echo $_SESSION["idCondominio"]  ?>" class="d-block" style="width: 13rem"> <i class="bi bi-calendar-week"></i> Area de Mantenciones</a>
+                <a href="../mantencion?idCondominio=<?php echo $_SESSION["nombCondominio"]  ?>" class="d-block" style="width: 13rem"> <i class="bi bi-calendar-week"></i> Area de Mantenciones</a>
                 <button class="btn btn-toggle text-light collapsed px-0" style="box-shadow:none!important;" id="btnCalendario" data-bs-toggle="collapse" data-bs-target="#mantenciones" aria-expanded="false">
                         <p class="m-0"><i class="bi bi-chevron-down"></i>  </p>
                 </button>

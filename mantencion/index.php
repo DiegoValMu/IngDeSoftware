@@ -3,7 +3,15 @@ session_start();
 include ('../conexion/config.php');
 $idAdmin = $_SESSION["id_usuario"];
 
-$idCondominio = $_GET["idCondominio"];
+$nombreCondominio = $_GET["idCondominio"];
+$_SESSION["nombCondominio"] = $nombreCondominio;
+$resultid = $con->query("SELECT * FROM condominio WHERE  nomb_condominio = '".$nombreCondominio."'");
+
+
+while( $dataID = mysqli_fetch_array($resultid)){
+  $idCondominio = $dataID["cod_condominio"];
+  $_SESSION["idEncargado"] = $dataID["id_encargado"];
+};
 
 $_SESSION["idCondominio"] = $idCondominio;
 
