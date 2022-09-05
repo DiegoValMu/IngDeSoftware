@@ -94,7 +94,8 @@ include('../conexion/config.php');
 <script type="text/javascript" src="../extencionesCalendario/js/fullcalendar.min.js"></script>
 <script src='../extencionesCalendario/locales/es.js'></script>
 
-<?php  
+<?php 
+  include ("agregarContratista.php");
                 include('modalNuevoEvento.php');
                 include('modalUpdateEvento.php');
                 ?>
@@ -267,7 +268,8 @@ if(e.target.id=="btnCerrar"){
     
     if ($('select[name=estado]').val() == 1 || $('select[name=estado]').val() == 2){
       $('label[name=labelContratista]').removeClass('d-none');
-      $('select[name=contratista]').removeClass('d-none');
+      $('input[name=contratista]').removeClass('d-none');
+      $('button[name=agregarContratista]').removeClass('d-none');
       $.ajax({
         url: '../extencionesCalendario/consultarContratista.php',
         data: 'idEvento='+idEvento,
@@ -279,7 +281,8 @@ if(e.target.id=="btnCerrar"){
       });
     }else if ($('select[name=estado]').val() == 3 || $('select[name=estado]').val() == 4) {
       $('label[name=labelContratista]').addClass('d-none');
-      $('select[name=contratista]').addClass('d-none');
+      $('input[name=contratista]').addClass('d-none');
+      $('button[name=agregarContratista]').addClass('d-none');
     }
 
 

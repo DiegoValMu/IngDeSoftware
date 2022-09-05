@@ -1,3 +1,5 @@
+
+
 <div class="modal" id="modalUpdateEvento"  tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -26,10 +28,16 @@
      </select>
 		</div>
     
+    <div class="d-inline-flex p-2">
+      <label name="labelContratista" for="contratista" class="col-sm-12 control-label d-none my-0 px-0 py-2">Contratista/s asociados/s:</label>
+      <button id="agregarContratista" name="agregarContratista" class="btn btn-success" 
+      style="font-size:12px;height: fit-content; padding: 2px 5px !important;line-height: 1.5 !important;margin-top:auto;margin-bottom:auto;"
+      data-bs-toggle="modal" data-bs-target="#myModalAgregar" >Agregar</button>
+    </div>
     
-    <label name="labelContratista" for="contratista" class="col-sm-12 control-label d-none">Contratista/s asociados/s:</label>
-    <div class="col-sm-12">
+    <div class="col-sm-12 mb-1">
       
+    
     
     <input type="text" class="form-control" name="contratista" id="contratista" readonly="readonly" />
  
@@ -74,6 +82,35 @@
 </div>
 
 <script>
+
+
+
+$('#agregarContratista').click(function(event){
+  event.preventDefault();
+
+  let Modal = document.getElementById('myModalAgregar');
+
+ console.log(Modal);
+  Modal.classList.add('show');
+  Modal.classList.add('d-block');
+  Modal.setAttribute('style','z-index:999999!important;')
+
+})
+
+$('#cerrar').click(function(e){
+  e.preventDefault();
+
+  let Modal = document.getElementById('myModalAgregar');
+
+  Modal.classList.remove('show');
+  Modal.classList.remove('d-block');
+
+
+});
+
+
+
+
 
 
 
