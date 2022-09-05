@@ -274,7 +274,7 @@ if(e.target.id=="btnCerrar"){
         type: "POST",
         success: function (response) {
           console.log(response);
-          $('select[name=contratista]').val(parseInt(response));
+          $('input[name=contratista]').val(response);
         }
       });
     }else if ($('select[name=estado]').val() == 3 || $('select[name=estado]').val() == 4) {

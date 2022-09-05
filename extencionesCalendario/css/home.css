@@ -16,6 +16,11 @@
   background-color: #111B54;
 }
 
+#contratista{
+  border:none!important;
+  box-shadow:none!important;
+}
+
 #title{
   color: #111B54;
   margin-top: 10px;

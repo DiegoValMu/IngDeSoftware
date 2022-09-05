@@ -27,16 +27,15 @@
 		</div>
     
     
-    <label name="labelContratista" for="contratista" class="col-sm-12 control-label d-none">Contratista:</label>
+    <label name="labelContratista" for="contratista" class="col-sm-12 control-label d-none">Contratista/s asociados/s:</label>
     <div class="col-sm-12">
-      <select type="text" name="contratista" id="contratista" class="form-control d-none" >
       
-        <option disabled selected>Seleccione...</option>
-        <?php while($dataContratista = mysqli_fetch_array($resulContratista)){ ?>
-        <option value="<?php echo $dataContratista["id_contratista"]; ?>"><?php echo $dataContratista["nomb_contratista"]." ".$dataContratista["apellidos_contratista"]." - ".$dataContratista["oficio"]; ?></option>
-        <?php } ?>
+    
+    <input type="text" class="form-control" name="contratista" id="contratista" readonly="readonly" />
+ 
+        
 
-     </select>
+    
 		</div>
 
 
