@@ -26,8 +26,8 @@ if(document.querySelector("#formAdmins")){
                 url: "../login/loginAdmin.php",
                 method: "GET",
                 data: {rutAdmin:rutAdmin,DVA:digito_verificador_admin,passAdmin:passAdmin},
-                success: function(data){
-                    if(data == true){
+                success: function(response){
+                    if(response == true){
                         location.href = "../inicio"
                     }else{
                         Swal

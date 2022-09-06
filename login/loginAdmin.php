@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 require("../conexion/config.php");
 $RUT           = $_REQUEST['rutAdmin'];
 $DV            = $_REQUEST['dvA'];
