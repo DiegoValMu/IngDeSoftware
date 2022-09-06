@@ -2,7 +2,7 @@
 session_start();
 require("../conexion/config.php");
 $RUT           = $_REQUEST['rutAdmin'];
-$DV            = $_REQUEST['dvA'];
+$DV            = $_REQUEST['DVA'];
 $password      = $_REQUEST['passAdmin'];
 $password = trim($password);  
 $SqlEventos   = ("SELECT * FROM administrador WHERE rut_adm = '".$RUT."'");
