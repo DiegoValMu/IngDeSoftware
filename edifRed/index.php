@@ -61,7 +61,7 @@
           <div>
               <div class="text-light">
 
-              <button id="btn-login" class="btn text-light" style=" box-shadow:none!important;"><i class="bi bi-person-circle" style="font-size:28px;"></i> Acceder</button>
+              <button id="btn-login" class="btn text-light" style=" box-shadow:none!important;"><i class="bi bi-person-circle" style="font-size:28px;"></i> </button>
 
               </div>
           </div>
