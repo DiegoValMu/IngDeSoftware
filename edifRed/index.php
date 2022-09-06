@@ -32,6 +32,7 @@
 </head>
 
 <body >
+    <?php include ("../extencionesCalendario/js/jquery-3.0.0.min.js") ?>
     <div class="d-flex" id="content-wrapper">
     <!-- sideBar -->
     <?php include('../edifRed/sidebarInicio.php') ?>
