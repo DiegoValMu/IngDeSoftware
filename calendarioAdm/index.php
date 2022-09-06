@@ -100,6 +100,8 @@ include('../conexion/config.php');
                 include('modalUpdateEvento.php');
                 ?>
 
+
+
 <script type="text/javascript">
   const vacio = "";
 $(document).ready(function() {
@@ -396,6 +398,6 @@ if(e.target.id=="btnCerrar"){
 
 
 <script src="https://unpkg.com/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
-
+<script src="../js/agregarContratista.js"></script>
 </body>
 </html>

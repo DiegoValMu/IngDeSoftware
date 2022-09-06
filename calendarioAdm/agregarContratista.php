@@ -8,9 +8,17 @@
       <div class="modal-body">
 
     <form id="agregarNuevoContratista">
+    
+    <div class="col-sm-12">
+      <select type="text" name="contratista" id="contratista" class="form-control" >
+      
+            <option disabled selected>Seleccione...</option>
+            <?php while($dataContratista = mysqli_fetch_array($resulContratista)){ ?>
+            <option value="<?php echo $dataContratista["id_contratista"]; ?>"><?php echo $dataContratista["nomb_contratista"]." ".$dataContratista["apellidos_contratista"]." - ".$dataContratista["oficio"]; ?></option>
+            <?php } ?>
 
-    
-    
+        </select>
+	</div>
 
 
       </div>
