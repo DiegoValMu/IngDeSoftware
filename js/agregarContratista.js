@@ -1,12 +1,15 @@
 if(document.querySelector("#agregarNuevoContratista")){
     let form = document.querySelector("#agregarNuevoContratista");
+    
     form.onsubmit = function (event){
         event.preventDefault();
         validarDatos();
     }
     async function validarDatos(){
         let idContratista = document.querySelector("#contratista").value;
-        console.log(idContratista)
+        let evento = document.getElementById("idEvento").value;
+        console.log(idContratista);
+        console.log(evento);
         if(idContratista == ""){
             Swal
               .fire({
@@ -18,8 +21,8 @@ if(document.querySelector("#agregarNuevoContratista")){
         }else{
             $.ajax({
                 url: "../extencionesCalendario/agregarNuevoContratista.php",
-                method: "POST",
-                data: "idContratista="+idContratista,
+                method: "GET",
+                data: {idContratista:idContratista,idEvento:evento},
                 success: function(data){
                     if(data == true){
                         Swal
