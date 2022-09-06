@@ -26,12 +26,6 @@ $(document).ready(function () {
         {"data": "id"},
         {"data": "mantencion"},
         {"data": "observacion"},
-        {"data": "costo",
-        "render": function (data, type, JsonResultRow, row) {
-            return `$${data}.-`
-        
-        }
-        },
         {"data": "fecha_inicio"},
         {"data": "fecha_fin"}
     ],
