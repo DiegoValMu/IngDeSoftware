@@ -27,16 +27,22 @@
 		</div>
     
     
-    <label name="labelContratista" for="contratista" class="col-sm-12 control-label d-none">Contratista:</label>
-    <div class="col-sm-12">
-      <select type="text" name="contratista" id="contratista" class="form-control d-none" >
+    <div class="d-inline-flex p-2">
+      <label name="labelContratista" for="contratista" class="col-sm-12 control-label d-none my-0 px-0 py-2">Contratista/s asociados/s:</label>
+      <button id="agregarContratista" name="agregarContratista" class="btn btn-success" 
+      style="font-size:12px;height: fit-content; padding: 2px 5px !important;line-height: 1.5 !important;margin-top:auto;margin-bottom:auto;"
+      data-bs-toggle="modal" data-bs-target="#myModalAgregar" >Agregar</button>
+    </div>
+    
+    <div class="col-12 mb-1">
       
-        <option disabled selected>Seleccione...</option>
-        <?php while($dataContratista = mysqli_fetch_array($resulContratista)){ ?>
-        <option value="<?php echo $dataContratista["id_contratista"]; ?>"><?php echo $dataContratista["nomb_contratista"]." ".$dataContratista["apellidos_contratista"]." - ".$dataContratista["oficio"]; ?></option>
-        <?php } ?>
+    
+    
+    <!-- <input type="text" class="form-control" name="contratista" id="contratista" readonly="readonly" /> -->
+ 
+    <textarea class="w-100" name="contratista" id="contratista" style="height: 5rem;"></textarea>    
 
-     </select>
+    
 		</div>
 
 
@@ -75,6 +81,35 @@
 </div>
 
 <script>
+
+
+
+$('#agregarContratista').click(function(event){
+  event.preventDefault();
+
+  let Modal = document.getElementById('myModalAgregar');
+
+ console.log(Modal);
+  Modal.classList.add('show');
+  Modal.classList.add('d-block');
+  Modal.setAttribute('style','z-index:999999!important;')
+
+})
+
+$('#cerrar').click(function(e){
+  e.preventDefault();
+
+  let Modal = document.getElementById('myModalAgregar');
+
+  Modal.classList.remove('show');
+  Modal.classList.remove('d-block');
+
+
+});
+
+
+
+
 
 
 

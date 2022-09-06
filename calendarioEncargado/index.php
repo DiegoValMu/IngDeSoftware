@@ -76,6 +76,7 @@ $encargado = $_SESSION['idEncargado'];
 
 
                 <?php  
+                 include ("agregarContratista.php");
                 include('modalNuevoEvento.php');
                 include('modalUpdateEvento.php');
                 ?>
@@ -259,19 +260,23 @@ if(e.target.id=="btnCerrar"){
     
     if ($('select[name=estado]').val() == 1 || $('select[name=estado]').val() == 2){
       $('label[name=labelContratista]').removeClass('d-none');
-      $('select[name=contratista]').removeClass('d-none');
+      $('textarea[name=contratista]').removeClass('d-none');
+      $('button[name=agregarContratista]').removeClass('d-none');
       $.ajax({
         url: '../extencionesCalendario/consultarContratista.php',
         data: 'idEvento='+idEvento,
         type: "POST",
         success: function (response) {
-          console.log(response);
-          $('select[name=contratista]').val(parseInt(response));
+          response.trimStart();
+          console.log(response.trimStart());
+          
+          $('textarea[name=contratista]').val(response.trimStart());
         }
       });
     }else if ($('select[name=estado]').val() == 3 || $('select[name=estado]').val() == 4) {
       $('label[name=labelContratista]').addClass('d-none');
-      $('select[name=contratista]').addClass('d-none');
+      $('textarea[name=contratista]').addClass('d-none');
+      $('button[name=agregarContratista]').addClass('d-none');
     }
 
 
@@ -385,6 +390,6 @@ if(e.target.id=="btnCerrar"){
 
 
 <script src="https://unpkg.com/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
-
+<script src="../js/agregarContratista.js"></script>
 </body>
 </html>
