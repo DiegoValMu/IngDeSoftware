@@ -18,7 +18,7 @@ $resultMantencion = mysqli_query($con, $SqlMantencion);
 
 
 while ($dataMan = mysqli_fetch_assoc($resultMantencion)){ 
-    echo $dataMan["nomb_contratista"]." ".$dataMan["apellidos_contratista"]." - ".$dataMan["oficio"];
+    echo $dataMan["nomb_contratista"]." ".$dataMan["apellidos_contratista"]." - ".$dataMan["oficio"].", \n";
 }
 
 

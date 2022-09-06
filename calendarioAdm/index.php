@@ -278,6 +278,7 @@ if(e.target.id=="btnCerrar"){
         type: "POST",
         success: function (response) {
           console.log(response);
+          response = response.replace(",","\n")
           $('input[name=contratista]').val(response);
         }
       });
