@@ -32,7 +32,9 @@
 </head>
 
 <body >
-    <?php include ("../extencionesCalendario/js/jquery-3.0.0.min.js") ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
     <div class="d-flex" id="content-wrapper">
     <!-- sideBar -->
     <?php include('../edifRed/sidebarInicio.php') ?>
@@ -176,9 +178,7 @@ include('planesModal.php');
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/login.js"></script>
 <script src="../js/edifred.js"></script>
