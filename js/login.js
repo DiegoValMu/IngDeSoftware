@@ -24,8 +24,8 @@ if(document.querySelector("#formAdmins")){
         }else{
             $.ajax({
                 url: "../login/loginAdmin.php",
-                method: "POST",
-                data: "rutAdmin="+rutAdmin+"&dvA="+digito_verificador_admin+"&passAdmin="+passAdmin,
+                method: "GET",
+                data: {rutAdmin:rutAdmin,DVA:digito_verificador_admin,passAdmin:passAdmin},
                 success: function(data){
                     if(data == true){
                         location.href = "../inicio"
