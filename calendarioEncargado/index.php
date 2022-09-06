@@ -75,11 +75,7 @@ $encargado = $_SESSION['idEncargado'];
               <div id="calendar" class="bg-light"></div>
 
 
-                <?php  
-                 include ("agregarContratista.php");
-                include('modalNuevoEvento.php');
-                include('modalUpdateEvento.php');
-                ?>
+               
 
 
 
@@ -91,6 +87,12 @@ $encargado = $_SESSION['idEncargado'];
 <script type="text/javascript" src="../extencionesCalendario/js/moment.min.js"></script>	
 <script type="text/javascript" src="../extencionesCalendario/js/fullcalendar.min.js"></script>
 <script src='../extencionesCalendario/locales/es.js'></script>
+
+<?php  
+                 include ("../calendarioAdm/agregarContratista.php");
+                include('modalNuevoEvento.php');
+                include('modalUpdateEvento.php');
+                ?>
 
 <script type="text/javascript">
   const vacio = "";
