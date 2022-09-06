@@ -35,13 +35,13 @@
       data-bs-toggle="modal" data-bs-target="#myModalAgregar" >Agregar</button>
     </div>
     
-    <div class="col-sm-12 mb-1">
+    <div class="col-12 mb-1">
       
     
     
-    <input type="text" class="form-control" name="contratista" id="contratista" readonly="readonly" />
+    <!-- <input type="text" class="form-control" name="contratista" id="contratista" readonly="readonly" /> -->
  
-        
+    <textarea class="w-100" name="contratista" id="contratista" style="height: 5rem;"></textarea>    
 
     
 		</div>

@@ -29,16 +29,18 @@ if(document.querySelector("#agregarNuevoContratista")){
                             .fire({
                               title:"Contratista agregado exitosamente",
                               icon: "success",
-                              showConfirmButton: true,
-                              showCancelButton: false
+                              showConfirmButton: false,
+                              showCancelButton: false,
+                              timer: 1000
                             })
                     }else{
                         Swal
                             .fire({
                               title:"Error: no se pudo ingresar",
                               icon: "warning",
-                              showConfirmButton: true,
-                              showCancelButton: false
+                              showConfirmButton: false,
+                              showCancelButton: false,
+                              timer: 1000
                             })
 
                     }

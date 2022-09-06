@@ -270,21 +270,22 @@ if(e.target.id=="btnCerrar"){
     
     if ($('select[name=estado]').val() == 1 || $('select[name=estado]').val() == 2){
       $('label[name=labelContratista]').removeClass('d-none');
-      $('input[name=contratista]').removeClass('d-none');
+      $('textarea[name=contratista]').removeClass('d-none');
       $('button[name=agregarContratista]').removeClass('d-none');
       $.ajax({
         url: '../extencionesCalendario/consultarContratista.php',
         data: 'idEvento='+idEvento,
         type: "POST",
         success: function (response) {
-          console.log(response);
-          response = response.replace(",","\n")
-          $('input[name=contratista]').val(response);
+          response.trimStart();
+          console.log(response.trimStart());
+          
+          $('textarea[name=contratista]').val(response.trimStart());
         }
       });
     }else if ($('select[name=estado]').val() == 3 || $('select[name=estado]').val() == 4) {
       $('label[name=labelContratista]').addClass('d-none');
-      $('input[name=contratista]').addClass('d-none');
+      $('textarea[name=contratista]').addClass('d-none');
       $('button[name=agregarContratista]').addClass('d-none');
     }
 
