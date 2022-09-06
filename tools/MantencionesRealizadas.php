@@ -18,8 +18,7 @@
 								                  	<th>Costo</th>
 								                  	<th>Fecha Inicio</th>
 								                  	<th>Fecha Fin</th>
-								                  	<th>Contratista</th>
-								                  	<th>Empresa</th>    
+  
                                 </tr>
                                 
                             </thead>

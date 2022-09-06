@@ -33,9 +33,7 @@ $(document).ready(function () {
         }
         },
         {"data": "fecha_inicio"},
-        {"data": "fecha_fin"},
-        {"data": "contratista"},
-        {"data": "empresa"}
+        {"data": "fecha_fin"}
     ],
     "columnDefs": [{
 
@@ -103,9 +101,7 @@ $(document).ready(function () {
         {"data": "mantencion"},
         {"data": "observacion"},
         {"data": "fecha_inicio"},
-        {"data": "fecha_fin"},
-        {"data": "contratista"},
-        {"data": "empresa"}
+        {"data": "fecha_fin"}
     ],
     "columnDefs": [{
 

@@ -6,14 +6,10 @@ include ('../conexion/config.php');
 $idCondominio = $_REQUEST['idCondominio'];
 
 $SqlCondominio   = ("SELECT *
-                        FROM condominio c, encargado e, mantencion m, realiza r, contratista con, trabaja tr, empresa_mantenciones em
+                        FROM condominio c, encargado e, mantencion m
                         WHERE m.estado = 2   
                         AND c.id_encargado = e.id_encargado 
                         AND e.id_encargado = m.id_encargado
-                        AND m.cod_mantencion = r.cod_mantencion 
-                        AND r.id_contratista = con.id_contratista
-                        AND con.id_contratista = tr.id_contratista
-                        AND tr.cod_empresam = em.cod_empresam
                         AND c.cod_condominio = '".$idCondominio."'");
 $resultCondominio = mysqli_query($con, $SqlCondominio);
 $data=array();
@@ -24,10 +20,7 @@ while ($dataEnc = mysqli_fetch_assoc($resultCondominio)){
         'mantencion'=>$dataEnc["nomb_mantencion"],
         'observacion'=>$dataEnc["observacion"],
         'fecha_inicio'=> date('d-m-Y', strtotime($dataEnc["fecha_inicio"])) ,
-        'fecha_fin'=>  date('d-m-Y', strtotime($dataEnc["fecha_fin"])),
-        'contratista'=>$dataEnc["nomb_contratista"]." ".$dataEnc["apellidos_contratista"],
-        'empresa'=>$dataEnc["nomb_Empresa"]
-
+        'fecha_fin'=>  date('d-m-Y', strtotime($dataEnc["fecha_fin"]))
     );
 }
 
